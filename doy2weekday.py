@@ -1,3 +1,11 @@
+'''
+Author: your name
+Date: 2021-12-04 13:32:43
+LastEditTime: 2021-12-08 10:30:35
+LastEditors: your name
+Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+FilePath: /GREAT_xml_py/doy2weekday.py
+'''
 #-*- coding-f:utf-8 -*-
 
 import PodBatch_win 
