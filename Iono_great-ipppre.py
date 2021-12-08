@@ -1,7 +1,7 @@
 '''
 Author: Han Junjie
 Date: 2021-12-08 13:39:09
-LastEditTime: 2021-12-08 17:07:52
+LastEditTime: 2021-12-08 19:32:04
 LastEditors: Please set LastEditors
 Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 FilePath: /GREAT_xml_py/Iono_great-ipppre.py
@@ -139,6 +139,28 @@ def change_inp_PL(xml_file,obsdir,site,ephdir,eph_name,year,doy,hour,s_length):
     inp_eph.text = eph_text + "  "
     tree.write(xml_file)
 
+def change_out_PPP(xml_file,year,doy,hour,s_length):
+    tree = et.parse(xml_file)
+    root = tree.getroot()
+    outputs = root.find("outputs")
+    #change flt
+    out_temp = outputs.find("flt")
+    out_temp.text = "  " + "flt/PPP_$(rec)_" + "{0:04}".format(year) + "{0:03}".format(doy) + ".flt"
+
+    #change enu
+    out_temp = outputs.find("enu")
+    out_temp.text = "  " + "enu/PPP_$(rec)_" + "{0:04}".format(year) + "{0:03}".format(doy) + ".enu"
+
+    #change recover
+    out_temp = outputs.find("recover")
+    out_temp.text = "  " + "res/PPP_$(rec)_" + "{0:04}".format(year) + "{0:03}".format(doy) + ".res"
+
+    #change recover
+    out_temp = outputs.find("recover")
+    out_temp.text = "  " + "res/PPP_$(rec)_" + "{0:04}".format(year) + "{0:03}".format(doy) + ".res"
+
+    tree.write(xml_file)
+
 def main_iter():
     #参数的传递
     year = argv[1]
@@ -173,6 +195,7 @@ def main_iter():
     
     if (type == "PPP"):
         change_inp_PPP(xmlfile,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,eph_name,dcbdir,dcb_name,int(year),doy,hour,s_length)
+        change_out_PPP(xmlfile,int(year),doy,hour,s_length)
     if (type == "PL"):
         change_inp_PL(xmlfile,obsdir,site,ephdir,eph_name,int(year),doy,hour,s_length)
 if __name__ == "__main__":
