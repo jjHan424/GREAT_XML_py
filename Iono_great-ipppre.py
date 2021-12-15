@@ -1,7 +1,7 @@
 '''
 Author: Han Junjie
 Date: 2021-12-08 13:39:09
-LastEditTime: 2021-12-15 15:27:17
+LastEditTime: 2021-12-15 15:36:39
 LastEditors: Please set LastEditors
 Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 FilePath: /GREAT_xml_py/Iono_great-ipppre.py
@@ -169,9 +169,9 @@ def change_out_PPP(xml_file,year,doy,hour,s_length,type):
     out_temp = outputs.find("recover")
     out_temp.text = "  " + "res/PPP_$(rec)_" + "{0:04}".format(year) + "{0:03}_".format(doy) + mode + ".res"
 
-    #change recover
-    out_temp = outputs.find("recover")
-    out_temp.text = "  " + "res/PPP_$(rec)_" + "{0:04}".format(year) + "{0:03}_".format(doy) + mode + ".res"
+    #change ipp
+    out_temp = outputs.find("ipp")
+    out_temp.text = "  " + "IPP_PPP/$(rec)$(doy)_" + mode + ".$(yy)IPP"
 
     tree.write(xml_file)
 
