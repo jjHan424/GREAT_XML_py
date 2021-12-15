@@ -1,7 +1,7 @@
 '''
 Author: Han Junjie
 Date: 2021-12-08 13:39:09
-LastEditTime: 2021-12-08 19:32:04
+LastEditTime: 2021-12-15 15:27:17
 LastEditors: Please set LastEditors
 Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 FilePath: /GREAT_xml_py/Iono_great-ipppre.py
@@ -73,7 +73,7 @@ def change_gen_time(xml_file,year,doy,hour,s_length):
     tree.write(xml_file)
 
 
-def change_inp_PPP(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,eph_name,dcbdir,dcb_name,year,doy,hour,s_length):
+def change_inp_PPP(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,eph_name,dcbdir,dcb_name,year,doy,hour,s_length,upddir,type):
     tree = et.parse(xml_file)
     root = tree.getroot()
     inputs = root.find("inputs")
@@ -85,15 +85,17 @@ def change_inp_PPP(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,e
     inp_clk = inputs.find("rinexc")
     inp_dcb = inputs.find("bias")
     inp_eph = inputs.find("rinexn")
+    if (type == "PPPAR"):
+            inp_upd = inputs.find("upd")
     cur_day = 0
-    obs_text,sp3_text,clk_text,dcb_text,eph_text = "","","","",""
+    obs_text,sp3_text,clk_text,dcb_text,eph_text,upd_text = "","","","","",""
     yyyy = "{0:04}".format(year)
     while (cur_day < day_length):
         day = doy + cur_day
         #change obs
         obs_text = obs_text + "\n"
         for cur_site in site_list:
-            obs_text = obs_text + "        " + obsdir + cur_site.lower() + "{0:03}".format(day) + "0." + yyyy[2:] + "o"
+            obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day) + cur_site.lower() + "{0:03}".format(day) + "0." + yyyy[2:] + "o"
         #change nav
         eph_text = eph_text + "  " + ephdir + eph_name +  "{0:03}".format(day) + "0." + yyyy[2:] + "n"
         #change sp3
@@ -105,12 +107,18 @@ def change_inp_PPP(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,e
         #change dcb
         dcb_text = dcb_text + "  " + dcbdir + dcb_name + str(week) + ".BIA"
         cur_day = cur_day + 1
+        #change upd
+        if (type == "PPPAR"):
+            upd_text = upd_text + "  " + upddir + "upd_nl_" + yyyy + "{0:03}".format(day) + "_GREC"
+            upd_text = upd_text + "  " + upddir + "upd_wl_" + yyyy + "{0:03}".format(day) + "_GREC"
     
     inp_obs.text = obs_text + "\n        "
     inp_eph.text = eph_text + "  "
     inp_sp3.text = sp3_text + "  "
     inp_clk.text = clk_text + "  "
     inp_dcb.text = dcb_text + "  "
+    if (type == "PPPAR"):
+        inp_upd.text = upd_text + "  "
     tree.write(xml_file)
 
 def change_inp_PL(xml_file,obsdir,site,ephdir,eph_name,year,doy,hour,s_length):
@@ -130,7 +138,7 @@ def change_inp_PL(xml_file,obsdir,site,ephdir,eph_name,year,doy,hour,s_length):
         #change obs
         obs_text = obs_text + "\n"
         for cur_site in site_list:
-            obs_text = obs_text + "        " + obsdir + cur_site.lower() + "{0:03}".format(day) + "0." + yyyy[2:] + "o"
+            obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day) + cur_site.lower() + "{0:03}".format(day) + "0." + yyyy[2:] + "o"
         #change nav
         eph_text = eph_text + "  " + ephdir + eph_name +  "{0:03}".format(day) + "0." + yyyy[2:] + "n"
         cur_day = cur_day + 1
@@ -139,25 +147,31 @@ def change_inp_PL(xml_file,obsdir,site,ephdir,eph_name,year,doy,hour,s_length):
     inp_eph.text = eph_text + "  "
     tree.write(xml_file)
 
-def change_out_PPP(xml_file,year,doy,hour,s_length):
+def change_out_PPP(xml_file,year,doy,hour,s_length,type):
     tree = et.parse(xml_file)
     root = tree.getroot()
     outputs = root.find("outputs")
+    if (type == "PPP"):
+        mode = "Float"
+    else: 
+        if (type == "PPPAR"):
+            mode = "Fixed"
+
     #change flt
     out_temp = outputs.find("flt")
-    out_temp.text = "  " + "flt/PPP_$(rec)_" + "{0:04}".format(year) + "{0:03}".format(doy) + ".flt"
+    out_temp.text = "  " + "flt/PPP_$(rec)_" + "{0:04}".format(year) + "{0:03}_".format(doy) + mode + ".flt"
 
     #change enu
     out_temp = outputs.find("enu")
-    out_temp.text = "  " + "enu/PPP_$(rec)_" + "{0:04}".format(year) + "{0:03}".format(doy) + ".enu"
+    out_temp.text = "  " + "enu/PPP_$(rec)_" + "{0:04}".format(year) + "{0:03}_".format(doy) + mode + ".enu"
 
     #change recover
     out_temp = outputs.find("recover")
-    out_temp.text = "  " + "res/PPP_$(rec)_" + "{0:04}".format(year) + "{0:03}".format(doy) + ".res"
+    out_temp.text = "  " + "res/PPP_$(rec)_" + "{0:04}".format(year) + "{0:03}_".format(doy) + mode + ".res"
 
     #change recover
     out_temp = outputs.find("recover")
-    out_temp.text = "  " + "res/PPP_$(rec)_" + "{0:04}".format(year) + "{0:03}".format(doy) + ".res"
+    out_temp.text = "  " + "res/PPP_$(rec)_" + "{0:04}".format(year) + "{0:03}_".format(doy) + mode + ".res"
 
     tree.write(xml_file)
 
@@ -180,22 +194,24 @@ def main_iter():
     clkdir = "/home/hanjunjie/data/IONO/"+year+"/CLK/"
     ephdir = "/home/hanjunjie/data/IONO/"+year+"/NAV/"
     dcbdir = "/home/hanjunjie/data/IONO/"+year+"/DCB/"
+    upddir = "/home/hanjunjie/data/IONO/"+year+"/UPD/"
     if (sys_Computer == "Win"):
         obsdir = ".\\data\\"
         sp3dir = ".\\data\\"
         clkdir = ".\\data\\"
         ephdir = ".\\data\\"
         dcbdir = ".\\data\\"
+        upddir = ".\\data\\"
     #机构设置
-    sp3_name = "igs"
-    clk_name = "igs"
-    eph_name = "brdc"
+    sp3_name = "cod"
+    clk_name = "cod"
+    eph_name = "brdm"
     dcb_name = "CAS"
     change_gen(xmlfile,int(year),doy,hour,s_length,site,sys_GNSS)
     
-    if (type == "PPP"):
-        change_inp_PPP(xmlfile,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,eph_name,dcbdir,dcb_name,int(year),doy,hour,s_length)
-        change_out_PPP(xmlfile,int(year),doy,hour,s_length)
+    if ("PPP" in type):
+        change_inp_PPP(xmlfile,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,eph_name,dcbdir,dcb_name,int(year),doy,hour,s_length,upddir,type)
+        change_out_PPP(xmlfile,int(year),doy,hour,s_length,type)
     if (type == "PL"):
         change_inp_PL(xmlfile,obsdir,site,ephdir,eph_name,int(year),doy,hour,s_length)
 if __name__ == "__main__":
