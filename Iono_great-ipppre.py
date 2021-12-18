@@ -85,7 +85,7 @@ def change_inp_PPP(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,e
     inp_clk = inputs.find("rinexc")
     inp_dcb = inputs.find("bias")
     inp_eph = inputs.find("rinexn")
-    if (type == "PPPAR"):
+    if ("AR" in type):
             inp_upd = inputs.find("upd")
     cur_day = 0
     obs_text,sp3_text,clk_text,dcb_text,eph_text,upd_text = "","","","","",""
@@ -108,7 +108,7 @@ def change_inp_PPP(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,e
         dcb_text = dcb_text + "  " + dcbdir + dcb_name + str(week) + ".BIA"
         cur_day = cur_day + 1
         #change upd
-        if (type == "PPPAR"):
+        if ("AR" in type):
             upd_text = upd_text + "  " + upddir + "upd_nl_" + yyyy + "{0:03}".format(day) + "_GREC"
             upd_text = upd_text + "  " + upddir + "upd_wl_" + yyyy + "{0:03}".format(day) + "_GREC"
     
@@ -117,7 +117,7 @@ def change_inp_PPP(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,e
     inp_sp3.text = sp3_text + "  "
     inp_clk.text = clk_text + "  "
     inp_dcb.text = dcb_text + "  "
-    if (type == "PPPAR"):
+    if ("AR" in type):
         inp_upd.text = upd_text + "  "
     tree.write(xml_file)
 
@@ -152,10 +152,13 @@ def change_out_PPP(xml_file,year,doy,hour,s_length,type):
     root = tree.getroot()
     outputs = root.find("outputs")
     if (type == "PPP"):
-        mode = "Float"
-    else: 
-        if (type == "PPPAR"):
-            mode = "Fixed"
+        mode = "Float" 
+    if (type == "PPPAR"):
+        mode = "Fixed"
+    if (type == "PPPSION"):
+        mode = "SION"
+    if (type == "PPPSIONAR"):
+        mode = "SIONAR"
 
     #change flt
     out_temp = outputs.find("flt")
