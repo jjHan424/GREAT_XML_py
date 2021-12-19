@@ -1,7 +1,7 @@
 '''
 Author: Han Junjie
 Date: 2021-12-08 13:39:09
-LastEditTime: 2021-12-15 15:36:39
+LastEditTime: 2021-12-19 14:29:01
 LastEditors: Please set LastEditors
 Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 FilePath: /GREAT_xml_py/Iono_great-ipppre.py
@@ -59,16 +59,22 @@ def change_gen_time(xml_file,year,doy,hour,s_length):
     min = 0
     sec = 0
     beg.text = " {0:04}".format(int(yyyy)) + "-" + "{0:02}".format(int(mon)) + "-" + "{0:02}".format(int(day)) + " " + "{0:02}".format(int(hour)) + ":{0:02}".format(min) + ":{0:02} ".format(sec)
-    while (s_length >= 86400):
+    hour_length = int(s_length / 3600)
+    sec_length = s_length - hour_length * 3600
+    while (hour_length >= 24):
         day = day + 1
-        s_length = s_length - 86400
-    while (s_length >= 3600):
+        hour_length = hour_length - 24
+    hour = hour + hour_length
+    while (hour >= 24):
+        hour = hour - 24
+        day = day + 1
+    while (sec_length >= 3600):
         hour = hour + 1
-        s_length = s_length - 3600
-    while (s_length >= 60):
+        sec_length = sec_length - 3600
+    while (sec_length >= 60):
         min = min + 1
-        s_length = s_length - 60
-    sec = sec + s_length
+        sec_length = sec_length - 60
+    sec = sec + sec_length
     end.text = " {0:04}".format(int(yyyy)) + "-" + "{0:02}".format(int(mon)) + "-" + "{0:02}".format(int(day)) + " " + "{0:02}".format(int(hour)) + ":{0:02}".format(min) + ":{0:02} ".format(sec)
     tree.write(xml_file)
 
@@ -78,8 +84,16 @@ def change_inp_PPP(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,e
     root = tree.getroot()
     inputs = root.find("inputs")
     day_length = s_length // 86400 + 1
-    site_list = site.split(" ")
-    
+    day_length = 1
+    hour_length = s_length / 3600
+    while (hour_length >= 24):
+        day_length = day_length + 1
+        hour_length = hour_length - 24
+    hour = hour + hour_length
+    while (hour >= 24):
+        day_length = day_length + 1
+        hour = hour - 24
+    site_list = site.split(" ")   
     inp_obs = inputs.find("rinexo")
     inp_sp3 = inputs.find("sp3")
     inp_clk = inputs.find("rinexc")
@@ -127,7 +141,15 @@ def change_inp_PL(xml_file,obsdir,site,ephdir,eph_name,year,doy,hour,s_length):
     inputs = root.find("inputs")
     day_length = s_length // 86400 + 1
     site_list = site.split(" ")
-    
+    hour_length = s_length / 3600
+    day_length = 1
+    while (hour_length >= 24):
+        day_length = day_length + 1
+        hour_length = hour_length - 24
+    hour = hour + hour_length
+    while (hour >= 24):
+        day_length = day_length + 1
+        hour = hour - 24
     inp_obs = inputs.find("rinexo")
     inp_eph = inputs.find("rinexn")
     cur_day = 0
