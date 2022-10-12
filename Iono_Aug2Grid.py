@@ -191,6 +191,7 @@ def change_out_Aug2Grid(xml_file,area,rec_rm,rec_chk):
     server_dir = server_dir +"-C"
     for cur_site in rec_chk:
         server_dir = server_dir + "-" + cur_site
+    outputs.find("log").attrib["name"] = server_dir.split(" ")[1]
     server_dir = server_dir+"/"
     outputs.find("ppp").text = server_dir + "$(rec)-GEC-AR.ppp "
     outputs.find("flt").text = server_dir + "$(rec)-GEC-AR.flt "
