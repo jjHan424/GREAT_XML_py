@@ -222,12 +222,12 @@ def main_iter():
     site = "1012 1022 1140 3026 2KJ1 A010 C004 D002 D007 D017 D018 E033 F094 H035 H038 H053 H055 H068 H074 H139 I092 J003 K042 K057 K059 K070 K101 K110 M175 M192 N004 N062 N010 N032 N028 N047 N068 O038 P053 S028 T023 T044 U029 V092 W038 X046 Y065 CQKZ CZDZ FYFN NCAY NYNZ SXXA WHDS WHSP WHXK WHXZ WHYJ XGXN XXFH YYJK"
     site_list = site.split(" ")
     if area=="WuHan":
-        obsdir = "/home/hanjunjie/data/IONO/"+year+"/OBS/"
-        sp3dir = "/home/hanjunjie/data/IONO_Paper-1/"+year+"/SP3/"
-        clkdir = "/home/hanjunjie/data/IONO_Paper-1/"+year+"/CLK/"
-        ephdir = "/home/hanjunjie/data/IONO_Paper-1/"+year+"/NAV/"
+        obsdir = "/cache/hanjunjie/Data/"+year+"/OBS/"
+        sp3dir = "/cache/hanjunjie/Data/"+year+"/SP3/"
+        clkdir = "/cache/hanjunjie/Data/"+year+"/CLK/"
+        ephdir = "/cache/hanjunjie/Data/"+year+"/NAV/"
         # dcbdir = "/home/hanjunjie/data/IONO/"+year+"/DCB/"
-        upddir = "/home/hanjunjie/Project/A-Paper-1/UPD/UPD_WithoutDCB_Before/"
+        upddir = "/cache/hanjunjie/Project/A-Paper-1/UPD/UPD_WithoutDCB/"
     #机构设置
     sp3_name = "gfz"
     clk_name = "gfz"

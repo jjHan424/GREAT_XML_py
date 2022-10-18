@@ -259,7 +259,7 @@ def main_iter():
     ephdir = "/home/hanjunjie/data/IONO/"+year+"/NAV/"
     dcbdir = "/home/hanjunjie/data/IONO/"+year+"/DCB/"
     upddir = "/home/hanjunjie/data/IONO/"+year+"/UPD/"
-    augdir = "/home/hanjunjie/Project/A-Paper-1/AUG_ELE/"+year+"{0:03}".format(doy)+"/server/"
+    augdir = "/cache/hanjunjie/Project/A-Paper-1/AUG_ELE/"+year+"{0:03}".format(doy)+"/server/"
     #机构设置
     sp3_name = "cod"
     clk_name = "cod"

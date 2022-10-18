@@ -214,20 +214,20 @@ def main_iter():
     #路径的设置
     if area=="WuHan":
         site_list = ["WHYJ","WHXZ","WHDS","WHSP","N004","N010","N028","N047","N062","N068","XGXN","WUDA","N032","E033"]
-        obsdir = "/home/hanjunjie/data/IONO/"+year+"/OBS/"
-        sp3dir = "/home/hanjunjie/data/IONO_Paper-1/"+year+"/SP3/"
-        clkdir = "/home/hanjunjie/data/IONO_Paper-1/"+year+"/CLK/"
-        ephdir = "/home/hanjunjie/data/IONO_Paper-1/"+year+"/NAV/"
+        obsdir = "/cache/hanjunjie/Data/"+year+"/OBS/"
+        sp3dir = "/cache/hanjunjie/Data/"+year+"/SP3/"
+        clkdir = "/cache/hanjunjie/Data/"+year+"/CLK/"
+        ephdir = "/cache/hanjunjie/Data/"+year+"/NAV/"
         # dcbdir = "/home/hanjunjie/data/IONO/"+year+"/DCB/"
-        upddir = "/home/hanjunjie/Project/A-Paper-1/UPD/UPD_WithoutDCB_Before/"
+        upddir = "/cache/hanjunjie/Project/A-Paper-1/UPD/UPD_WithoutDCB/"
     if area=="HongKong":
         site_list = ["HKTK","T430","HKLT","HKKT","HKSS","HKWS","HKSL","HKST","HKKS","HKCL","HKSC","HKPC","HKNP","HKMW","HKLM","HKOH"]
-        obsdir = "/home/hanjunjie/data/IONOGRID/"+year+"/OBS/"
-        sp3dir = "/home/hanjunjie/data/IONO_Paper-1/"+year+"/SP3/"
-        clkdir = "/home/hanjunjie/data/IONO_Paper-1/"+year+"/CLK/"
-        ephdir = "/home/hanjunjie/data/IONO_Paper-1/"+year+"/NAV/"
+        obsdir = "/cache/hanjunjie/Data/"+year+"/OBS/"
+        sp3dir = "/cache/hanjunjie/Data/"+year+"/SP3/"
+        clkdir = "/cache/hanjunjie/Data/"+year+"/CLK/"
+        ephdir = "/cache/hanjunjie/Data/"+year+"/NAV/"
         # dcbdir = "/home/hanjunjie/data/IONO/"+year+"/DCB/"
-        upddir = "/home/hanjunjie/Project/A-Paper-1/UPD/UPD_WithoutDCB_Before/"
+        upddir = "/cache/hanjunjie/Project/A-Paper-1/UPD/UPD_WithoutDCB/"
     #机构设置
     sp3_name = "gfz"
     clk_name = "gfz"

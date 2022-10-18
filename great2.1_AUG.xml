@@ -63,11 +63,11 @@
    
 
    <!-- <aug>  caster://admin01:sgg12345@59.172.178.24:10068/AUG23 </aug> -->
-   <atx> /home/hanjunjie/Project/Paper-1/model/igs_absolute_14_BDS.atx </atx>
-   <blq>/home/hanjunjie/Project/Paper-1/model/oceanload </blq>
-   <de> /home/hanjunjie/Project/Paper-1/model/jpleph_de405_great </de>
-   <eop> /home/hanjunjie/Project/Paper-1/model/poleut_great </eop>
-   <leapsecond> /home/hanjunjie/Project/Paper-1/model/leap_seconds </leapsecond>
+   <atx> /cache/hanjunjie/Project/A-Paper-1/model/igs_absolute_14_BDS.atx </atx>
+   <blq>/cache/hanjunjie/Project/A-Paper-1/model/oceanload </blq>
+   <de> /cache/hanjunjie/Project/A-Paper-1/model/jpleph_de405_great </de>
+   <eop> /cache/hanjunjie/Project/A-Paper-1/model/poleut_great </eop>
+   <leapsecond> /cache/hanjunjie/Project/A-Paper-1/model/leap_seconds </leapsecond>
 
    <upd> 
     /home/hanjunjie/Project/A-Paper-1/UPD/UPD_WithoutDCB_Before/upd_nl_2021339_GEC
