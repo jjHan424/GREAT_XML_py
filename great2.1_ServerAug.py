@@ -110,7 +110,7 @@ def change_inp_PPP(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,e
         obs_text = obs_text + "\n"
         for cur_site in site_list:
             if area == "WuHan":
-                obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day) + "GRID/" + cur_site.upper() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
+                obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day)  + cur_site.upper() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
             if area == "HongKong":
                 obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day) + "5S/" + cur_site.lower() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
         #change nav
