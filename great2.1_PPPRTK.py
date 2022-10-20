@@ -234,13 +234,13 @@ def change_inp_PPPRTK(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdi
     if site[0][0:2] == "HK":
         area = "HongKong"
     else:
-        area = "WuHan"
+        area = "WuHan2"
     while (cur_day < day_length):
         day = doy + cur_day
         #change obs
         obs_text = obs_text + "\n"
         for cur_site in site_list:
-            if area == "WuHan":
+            if area == "WuHan2":
                 obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day) + cur_site.upper() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
             if area == "HongKong":
                 obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day) + cur_site.lower() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
