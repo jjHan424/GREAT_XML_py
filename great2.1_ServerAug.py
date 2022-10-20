@@ -112,7 +112,7 @@ def change_inp_PPP(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,e
             if area == "WuHan":
                 obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day)  + cur_site.upper() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
             if area == "HongKong":
-                obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day) + "5S/" + cur_site.lower() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
+                obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day) + cur_site.lower() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
         #change nav
         eph_text = eph_text + "  " + ephdir + eph_name +  "{0:03}".format(day) + "0." + yyyy[2:] + "n"
         #change upd
@@ -212,22 +212,16 @@ def main_iter():
     area = argv[6]
     xmlfile = argv[7]
     #路径的设置
-    if area=="WuHan":
-        site_list = ["WHYJ","WHXZ","WHDS","WHSP","N004","N010","N028","N047","N062","N068","XGXN","WUDA","N032","E033"]
-        obsdir = "/cache/hanjunjie/Data/"+year+"/OBS/"
-        sp3dir = "/cache/hanjunjie/Data/"+year+"/SP3/"
-        clkdir = "/cache/hanjunjie/Data/"+year+"/CLK/"
-        ephdir = "/cache/hanjunjie/Data/"+year+"/NAV/"
-        # dcbdir = "/home/hanjunjie/data/IONO/"+year+"/DCB/"
-        upddir = "/cache/hanjunjie/Project/A-Paper-1/UPD/UPD_WithoutDCB/"
+    obsdir = "/cache/hanjunjie/Data/"+year+"/OBS/"
+    sp3dir = "/cache/hanjunjie/Data/"+year+"/SP3/"
+    clkdir = "/cache/hanjunjie/Data/"+year+"/CLK/"
+    ephdir = "/cache/hanjunjie/Data/"+year+"/NAV/"
+    # dcbdir = "/home/hanjunjie/data/IONO/"+year+"/DCB/"
+    upddir = "/cache/hanjunjie/Project/A-Paper-1/UPD/UPD_WithoutDCB/"
+    if area=="WuHan1":
+        site_list = ["WHYJ","WHXZ","WHDS","WHSP","N004","N010","N028","N047","N062","N068","XGXN","WUDA","N032","E033"]     
     if area=="HongKong":
         site_list = ["HKTK","T430","HKLT","HKKT","HKSS","HKWS","HKSL","HKST","HKKS","HKCL","HKSC","HKPC","HKNP","HKMW","HKLM","HKOH"]
-        obsdir = "/cache/hanjunjie/Data/"+year+"/OBS/"
-        sp3dir = "/cache/hanjunjie/Data/"+year+"/SP3/"
-        clkdir = "/cache/hanjunjie/Data/"+year+"/CLK/"
-        ephdir = "/cache/hanjunjie/Data/"+year+"/NAV/"
-        # dcbdir = "/home/hanjunjie/data/IONO/"+year+"/DCB/"
-        upddir = "/cache/hanjunjie/Project/A-Paper-1/UPD/UPD_WithoutDCB/"
     #机构设置
     sp3_name = "gfz"
     clk_name = "gfz"
