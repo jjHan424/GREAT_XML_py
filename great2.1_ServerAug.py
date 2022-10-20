@@ -218,7 +218,7 @@ def main_iter():
     ephdir = "/cache/hanjunjie/Data/"+year+"/NAV/"
     # dcbdir = "/home/hanjunjie/data/IONO/"+year+"/DCB/"
     upddir = "/cache/hanjunjie/Project/A-Paper-1/UPD/UPD_WithoutDCB/"
-    if area=="WuHan1":
+    if area=="WuHan":
         site_list = ["WHYJ","WHXZ","WHDS","WHSP","N004","N010","N028","N047","N062","N068","XGXN","WUDA","N032","E033"]     
     if area=="HongKong":
         site_list = ["HKTK","T430","HKLT","HKKT","HKSS","HKWS","HKSL","HKST","HKKS","HKCL","HKSC","HKPC","HKNP","HKMW","HKLM","HKOH"]
