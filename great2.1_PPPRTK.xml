@@ -45,6 +45,9 @@
    <aug_grid> 
    ./server-WH/GREAT-GEC-5.grid
    </aug_grid>
+   <aug> 
+   ./server-WH/GREAT-GEC-5.grid
+   </aug>
  </inputs>
 
  <outputs append="false" verb="2">
