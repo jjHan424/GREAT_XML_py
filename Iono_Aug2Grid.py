@@ -220,7 +220,7 @@ def change_ionogrid(xml_file,area,rec_rm_list,rec_chk_list):
         root.find("RefLat").text = "     "  + "{:3.2f}".format(31.8) +"      "
         root.find("SpaceLon").text = "   "  + "{:.2f}".format(0.5) +"       "
         root.find("SpaceLat").text = "   "  + "{:.2f}".format(0.5) +"       "
-        root.find("CountLon").text = "   "  + "{:2d}".format(5) +"         "
+        root.find("CountLon").text = "   "  + "{:2d}".format(6) +"         "
         root.find("CountLat").text = "   "  + "{:2d}".format(5) +"         "
         root.find("bias_baseline").text = "  "  + "{:.2f}".format(150) +"     "
         root.find("maxdis_wgt").text = "     "  + "{:.2f}".format(100) +"     "

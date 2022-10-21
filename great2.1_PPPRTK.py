@@ -195,7 +195,7 @@ def change_ionogrid(xml_file,Coef_a,Coef_b,mode):
             root_ionogrid.find("a_Wgt").attrib[sys] = "{:05f}".format(Coef_a[sys])
             root_ionogrid.find("b_Wgt").attrib[sys] = "{:05f}".format(Coef_b[sys])
     if (mode == "Grid"):
-        root_ionogrid.find("isWgt").text = " OFF "
+        root_ionogrid.find("isWgt").text = " Grid "
         root_npp.find("correct_obs").text = " NO "
         root_npp.find("grid_aug").text = " YES "
         
