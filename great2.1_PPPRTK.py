@@ -163,11 +163,12 @@ def change_out_PPPRTK(xml_file,site,mode):
     root = tree.getroot()
     outputs = root.find("outputs")
     
-    server_dir = " client"+"-"+site[0]+"-"+mode
-    outputs.find("log").attrib["name"] = server_dir.split(" ")[1]
+    server_dir = "client"+"-"+mode
+    # outputs.find("log").attrib["name"] = server_dir.split(" ")[1]
     save_dir = outputs.find("log").attrib["name"]
-    if (not os.path.exists(save_dir)):
-        os.mkdir(save_dir)
+    if (not os.path.exists(server_dir)):
+        os.mkdir(server_dir)
+    server_dir = " client"+"-"+mode
     server_dir = server_dir+"/"
     outputs.find("ppp").text = server_dir + "$(rec)-GEC.ppp "
     outputs.find("flt").text = server_dir + "$(rec)-GEC.flt "
@@ -180,17 +181,25 @@ def change_ionogrid(xml_file,Coef_a,Coef_b,mode):
     tree = et.parse(xml_file)
     root_ionogrid = tree.getroot().find("ionogrid")
     root_npp = tree.getroot().find("npp")
+    root_pro = tree.getroot().find("process")
     if (mode == "Aug"):
         root_npp.find("correct_obs").text = " YES "
+        root_ionogrid.find("isWgt").text = " OFF "
         root_npp.find("grid_aug").text = " NO "
+        root_pro.find("sig_init_vion").text = " 0.001 "
+        root_pro.find("sig_init_ztd").text = " 1.0E-9 "
     if (mode == "Grid_Chk"):
         root_ionogrid.find("isWgt").text = " CHKSITE "
         root_npp.find("correct_obs").text = " NO "
         root_npp.find("grid_aug").text = " YES "
+        root_pro.find("sig_init_vion").text = " 100 "
+        root_pro.find("sig_init_ztd").text = " 1.0E-9 "
     if (mode == "Grid_Ele"):
         root_ionogrid.find("isWgt").text = " EleWgt "
         root_npp.find("correct_obs").text = " NO "
         root_npp.find("grid_aug").text = " YES "
+        root_pro.find("sig_init_vion").text = " 100 "
+        root_pro.find("sig_init_ztd").text = " 1.0E-9 "
         for sys in Coef_a.keys():
             root_ionogrid.find("a_Wgt").attrib[sys] = "{:05f}".format(Coef_a[sys])
             root_ionogrid.find("b_Wgt").attrib[sys] = "{:05f}".format(Coef_b[sys])
@@ -198,6 +207,8 @@ def change_ionogrid(xml_file,Coef_a,Coef_b,mode):
         root_ionogrid.find("isWgt").text = " Grid "
         root_npp.find("correct_obs").text = " NO "
         root_npp.find("grid_aug").text = " YES "
+        root_pro.find("sig_init_vion").text = " 100 "
+        root_pro.find("sig_init_ztd").text = " 1.0E-9 "
         
     tree.write(xml_file)
 
@@ -234,13 +245,13 @@ def change_inp_PPPRTK(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdi
     if site[0][0:2] == "HK":
         area = "HongKong"
     else:
-        area = "WuHan2"
+        area = "WuHan"
     while (cur_day < day_length):
         day = doy + cur_day
         #change obs
         obs_text = obs_text + "\n"
         for cur_site in site_list:
-            if area == "WuHan2":
+            if area == "WuHan":
                 obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day) + cur_site.upper() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
             if area == "HongKong":
                 obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day) + cur_site.lower() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
@@ -270,7 +281,7 @@ def change_inp_PPPRTK(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdi
     inp_clk.text = clk_text + "  "
     inp_upd.text = upd_text + "  "
     inp_aug.text = aug_text + "    "
-    root.find("outputs").find("log").attrib["name"] = "client-"+site[0]+"-"+mode
+    root.find("outputs").find("log").attrib["name"] = "client-"+site[0] + "-"+mode
     tree.write(xml_file)
 
 def main_iter():

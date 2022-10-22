@@ -99,7 +99,7 @@
         <bias_res> 0.02 </bias_res>
 		<bias_baseline> 150 </bias_baseline><!-- Bias观测方程最近测站选取阈值 -->
     <!-- Weight for Client Set -->
-		<isWgt> FIRST </isWgt>
+		<isWgt> ChkSite </isWgt>
 		<rec_chk> WUDA </rec_chk>
 		<roti_wgt> false </roti_wgt>
 		<maxdis_wgt> 100 </maxdis_wgt>

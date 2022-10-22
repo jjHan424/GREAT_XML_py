@@ -206,16 +206,16 @@ def change_ionogrid(xml_file,area,rec_rm_list,rec_chk_list):
     tree = et.parse(xml_file)
     root = tree.getroot().find("ionogrid")
     root.find("Mask").text = " "  + area +" "
-    if (area == "WuHan1"):  
-        root.find("RefLon").text = "     "  + "{:3.2f}".format(112.6) +"     "
-        root.find("RefLat").text = "     "  + "{:3.2f}".format(31.8) +"      "
-        root.find("SpaceLon").text = "   "  + "{:.2f}".format(0.5) +"       "
-        root.find("SpaceLat").text = "   "  + "{:.2f}".format(0.5) +"       "
-        root.find("CountLon").text = "   "  + "{:2d}".format(7) +"         "
-        root.find("CountLat").text = "   "  + "{:2d}".format(6) +"         "
-        root.find("bias_baseline").text = "  "  + "{:.2f}".format(150) +"     "
-        root.find("maxdis_wgt").text = "     "  + "{:.2f}".format(100) +"     "
-    if (area == "WuHan2"):  
+    # if (area == "WuHan"):  
+    #     root.find("RefLon").text = "     "  + "{:3.2f}".format(112.6) +"     "
+    #     root.find("RefLat").text = "     "  + "{:3.2f}".format(31.8) +"      "
+    #     root.find("SpaceLon").text = "   "  + "{:.2f}".format(0.5) +"       "
+    #     root.find("SpaceLat").text = "   "  + "{:.2f}".format(0.5) +"       "
+    #     root.find("CountLon").text = "   "  + "{:2d}".format(7) +"         "
+    #     root.find("CountLat").text = "   "  + "{:2d}".format(6) +"         "
+    #     root.find("bias_baseline").text = "  "  + "{:.2f}".format(150) +"     "
+    #     root.find("maxdis_wgt").text = "     "  + "{:.2f}".format(100) +"     "
+    if (area == "WuHan"):  
         root.find("RefLon").text = "     "  + "{:3.2f}".format(113.2) +"     "
         root.find("RefLat").text = "     "  + "{:3.2f}".format(31.8) +"      "
         root.find("SpaceLon").text = "   "  + "{:.2f}".format(0.5) +"       "
@@ -275,11 +275,11 @@ def main_iter():
     eph_name = "brdm"
     dcb_name = "CAS"
     #区域设置
-    if (area=="WuHan1"):
-        site = ["WHYJ","WHXZ","WHDS","WHSP","N004","N010","N028","N047","N062","N068","XGXN","WUDA","N032","E033"]
+    # if (area=="WuHan1"):
+    #     site = ["WHYJ","WHXZ","WHDS","WHSP","N004","N010","N028","N047","N062","N068","XGXN","WUDA","N032","E033"]
     if (area=="HongKong"):
         site = ["HKTK","T430","HKLT","HKKT","HKSS","HKWS","HKSL","HKST","HKKS","HKCL","HKSC","HKPC","HKNP","HKMW","HKLM","HKOH"]
-    if (area=="WuHan2"):
+    if (area=="WuHan"):
         site = ["WHYJ","WHXZ","WHDS","WHSP","N028","N047","N068","XGXN","WUDA"]
     #多测站处理
     rec_rm_list = rec_rm.split(",")
