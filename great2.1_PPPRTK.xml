@@ -112,7 +112,8 @@
  <ionogrid ID="01">
 		<isWgt> CHKSITE </isWgt>
 		<a_Wgt G = "0.0020" E = "0.0020" C = "0.0020" /> 		
-		<b_Wgt G = "0.0150" E = "0.0150" C = "0.0150" /> 	
+		<b_Wgt G = "0.0150" E = "0.0150" C = "0.0150" />
+		<x_Wgt G = "0.0150" E = "0.0150" C = "0.0150" /> 	
 		<!-- <Mask> HONGKONG </Mask>
 		<RefLon> 113.90 </RefLon>
 		<RefLat> 22.50 </RefLat>

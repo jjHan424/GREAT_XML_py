@@ -177,7 +177,7 @@ def change_out_PPPRTK(xml_file,site,mode):
     outputs.find("kml").text = server_dir + "$(rec)-GEC.kml  "
     tree.write(xml_file)
 
-def change_ionogrid(xml_file,Coef_a,Coef_b,mode):
+def change_ionogrid(xml_file,Coef_a,Coef_b,Coef_x,mode):
     tree = et.parse(xml_file)
     root_ionogrid = tree.getroot().find("ionogrid")
     root_npp = tree.getroot().find("npp")
@@ -203,6 +203,7 @@ def change_ionogrid(xml_file,Coef_a,Coef_b,mode):
         for sys in Coef_a.keys():
             root_ionogrid.find("a_Wgt").attrib[sys] = "{:05f}".format(Coef_a[sys])
             root_ionogrid.find("b_Wgt").attrib[sys] = "{:05f}".format(Coef_b[sys])
+            root_ionogrid.find("x_Wgt").attrib[sys] = "{:05f}".format(Coef_x[sys])
     if (mode == "Grid"):
         root_ionogrid.find("isWgt").text = " Grid "
         root_npp.find("correct_obs").text = " NO "
@@ -333,13 +334,27 @@ def main_iter():
     
     # change_inp_Aug2Grid(xmlfile,augdir,site)
     change_out_PPPRTK(xmlfile,site,mode)
-    Coef_a,Coef_b = {},{}
-    Coef_a["G"] = 0.002
-    Coef_b["G"] = 0.015
-    Coef_a["E"] = 0.002
-    Coef_b["E"] = 0.015
-    Coef_a["C"] = 0.002
-    Coef_b["C"] = 0.015
-    change_ionogrid(xmlfile,Coef_a,Coef_b,mode)
+    Coef_a,Coef_b,Coef_x = {},{},{}
+    if site[0][0:1] == "H":
+        Coef_a["G"] = 0.00063
+        Coef_b["G"] = 0.00500
+        Coef_x["G"] = -1.7
+        Coef_a["E"] = 0.00077
+        Coef_b["E"] = 0.00447
+        Coef_x["E"] = -1.7
+        Coef_a["C"] = 0.00095
+        Coef_b["C"] = 0.00571
+        Coef_x["C"] = -1.7
+    else:
+        Coef_a["G"] = -0.04749
+        Coef_b["G"] = 0.05835
+        Coef_x["G"] = 1
+        Coef_a["E"] = -0.07436
+        Coef_b["E"] = 0.0859
+        Coef_x["E"] = 1
+        Coef_a["C"] = -0.05187
+        Coef_b["C"] = 0.06587
+        Coef_x["C"] = 1
+    change_ionogrid(xmlfile,Coef_a,Coef_b,Coef_x,mode)
 if __name__ == "__main__":
         main_iter()
