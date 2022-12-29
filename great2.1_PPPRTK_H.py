@@ -158,17 +158,16 @@ def change_inp_Aug2Grid(xml_file,augdir,site):
     tree.write(xml_file)
 
 
-def change_out_PPPRTK(xml_file,site,mode):
+def change_out_PPPRTK(xml_file,site,mode,doy,cc):
     tree = et.parse(xml_file)
     root = tree.getroot()
     outputs = root.find("outputs")
     
-    server_dir = "client"+"-"+mode
+    server_dir = "client"+"-"+mode + "-{0:03}".format(doy) + "-{0:02}".format(cc)
     # outputs.find("log").attrib["name"] = server_dir.split(" ")[1]
     save_dir = outputs.find("log").attrib["name"]
     if (not os.path.exists(server_dir)):
         os.mkdir(server_dir)
-    server_dir = " client"+"-"+mode
     server_dir = server_dir+"/"
     outputs.find("ppp").text = server_dir + "$(rec)-GEC.ppp "
     outputs.find("flt").text = server_dir + "$(rec)-GEC.flt "
@@ -177,43 +176,64 @@ def change_out_PPPRTK(xml_file,site,mode):
     outputs.find("kml").text = server_dir + "$(rec)-GEC.kml  "
     tree.write(xml_file)
 
-def change_ionogrid(xml_file,Coef_a,Coef_b,Coef_x,mode):
+def change_ionogrid(xml_file,Coef_a,Coef_b,Coef_x,mode,cont):
     tree = et.parse(xml_file)
     root_ionogrid = tree.getroot().find("ionogrid")
     root_npp = tree.getroot().find("npp")
     root_pro = tree.getroot().find("process")
+    root_flter = tree.getroot().find("filter")
     if (mode == "Aug"):
         root_npp.find("correct_obs").text = " YES "
-        root_ionogrid.find("isWgt").text = " OFF "
+        root_ionogrid.find("wgt_mode").text = " OFF "
         root_npp.find("grid_aug").text = " NO "
         root_pro.find("sig_init_vion").text = " 0.001 "
-        root_pro.find("sig_init_ztd").text = " 1.0E-9 "
+        root_pro.find("sig_init_ztd").text = " 1.0E-2 "
+        root_flter.attrib["noise_vion"] = "0.001"
+    if (mode == "Grid_Cor"):
+        root_npp.find("correct_obs").text = " YES "
+        root_ionogrid.find("wgt_mode").text = " Grid "
+        root_npp.find("grid_aug").text = " YES "
+        root_pro.find("sig_init_vion").text = " 0.001 "
+        root_pro.find("sig_init_ztd").text = " 1.0E-2 "
+        root_flter.attrib["noise_vion"] = "0.001"
     if (mode == "Grid_Chk"):
-        root_ionogrid.find("isWgt").text = " CHKSITE "
+        root_ionogrid.find("wgt_mode").text = " CHKSITE "
         root_npp.find("correct_obs").text = " NO "
         root_npp.find("grid_aug").text = " YES "
         root_pro.find("sig_init_vion").text = " 100 "
-        root_pro.find("sig_init_ztd").text = " 1.0E-9 "
+        root_pro.find("sig_init_ztd").text = " 1.0E-2 "
     if (mode == "Grid_Ele"):
-        root_ionogrid.find("isWgt").text = " EleWgt "
+        root_ionogrid.find("wgt_mode").text = " DISELE "
         root_npp.find("correct_obs").text = " NO "
         root_npp.find("grid_aug").text = " YES "
         root_pro.find("sig_init_vion").text = " 100 "
-        root_pro.find("sig_init_ztd").text = " 1.0E-9 "
+        root_pro.find("sig_init_ztd").text = " 1.0E-2 "
+        for sys in Coef_a.keys():
+            root_ionogrid.find("a_Wgt").attrib[sys] = "{:05f}".format(Coef_a[sys])
+            root_ionogrid.find("b_Wgt").attrib[sys] = "{:05f}".format(Coef_b[sys])
+            root_ionogrid.find("x_Wgt").attrib[sys] = "{:05f}".format(Coef_x[sys])
+    if (mode == "Grid_Ele_R"):
+        root_ionogrid.find("wgt_mode").text = " DISELEROTI "
+        root_npp.find("correct_obs").text = " NO "
+        root_npp.find("grid_aug").text = " YES "
+        root_pro.find("sig_init_vion").text = " 100 "
+        root_pro.find("sig_init_ztd").text = " 1.0E-2 "
         for sys in Coef_a.keys():
             root_ionogrid.find("a_Wgt").attrib[sys] = "{:05f}".format(Coef_a[sys])
             root_ionogrid.find("b_Wgt").attrib[sys] = "{:05f}".format(Coef_b[sys])
             root_ionogrid.find("x_Wgt").attrib[sys] = "{:05f}".format(Coef_x[sys])
     if (mode == "Grid"):
-        root_ionogrid.find("isWgt").text = " Grid "
+        root_ionogrid.find("wgt_mode").text = " Grid "
         root_npp.find("correct_obs").text = " NO "
         root_npp.find("grid_aug").text = " YES "
         root_pro.find("sig_init_vion").text = " 100 "
-        root_pro.find("sig_init_ztd").text = " 1.0E-9 "
+        root_pro.find("sig_init_ztd").text = " 1.0E-2 "
+        root_npp.find("p_Ion").text = " 1e{:d} ".format(cont)
+        root_npp.find("p_Trp").text = " 1e{:d} ".format(cont)
         
     tree.write(xml_file)
 
-def change_inp_PPPRTK(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,eph_name,augdir,year,doy,hour,s_length,upddir,site_aug,mode):
+def change_inp_PPPRTK(xml_file,obsdir,site,rotidir,sp3dir,sp3_name,clkdir,clk_name,ephdir,eph_name,augdir,year,doy,hour,s_length,upddir,site_aug,mode):
     tree = et.parse(xml_file)
     root = tree.getroot()
     inputs = root.find("inputs")
@@ -233,6 +253,7 @@ def change_inp_PPPRTK(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdi
     inp_clk = inputs.find("rinexc")
     inp_eph = inputs.find("rinexn")
     inp_upd = inputs.find("upd")
+    inp_roti = inputs.find("roti")
     if mode == "Aug":
         inp_aug = inputs.find("aug")
         inputs.find("aug_grid").text = ""
@@ -241,10 +262,14 @@ def change_inp_PPPRTK(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdi
         inputs.find("aug").text = ""
     
     cur_day = 0
-    obs_text,sp3_text,clk_text,dcb_text,eph_text,upd_text,aug_text = "","","","","","",""
+    obs_text,sp3_text,clk_text,dcb_text,eph_text,upd_text,aug_text,roti_text = "","","","","","","",""
     yyyy = "{0:04}".format(year)
-    if site[0][0:2] == "HK":
+    if site[0][0:2] == "HK" or site[0] == "T430":
         area = "HongKong"
+    elif site[0][0:1] == "H":
+        area = "GuangZhou"
+    elif site[0][0:1] == "K" or site[0][0:1] == "V" or site[0][0:1] == "A":
+        area = "HeBei"
     else:
         area = "WuHan"
     while (cur_day < day_length):
@@ -252,7 +277,7 @@ def change_inp_PPPRTK(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdi
         #change obs
         obs_text = obs_text + "\n"
         for cur_site in site_list:
-            if area == "WuHan":
+            if area == "WuHan" or area == "GuangZhou" or area == "HeBei":
                 obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day) + cur_site.upper() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
             if area == "HongKong":
                 obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day) + cur_site.lower() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
@@ -261,6 +286,7 @@ def change_inp_PPPRTK(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdi
         #change upd
         upd_text = upd_text + "\n  " + upddir + "upd_nl_" + yyyy + "{0:03}".format(day) + "_GEC\n"
         upd_text = upd_text + "  " + upddir + "upd_wl_" + yyyy + "{0:03}".format(day) + "_GEC\n"
+        roti_text = roti_text + "        " + rotidir  + yyyy + "{0:03}".format(day) + "/roti/" + site[0] + yyyy + "{0:03}".format(day) + "_GEC.ismr"
         #change sp3
         y_temp,mon,day = doy2ymd(int(year),int(day))
         week = ymd2gpsweekday(int(year),mon,day)
@@ -275,13 +301,15 @@ def change_inp_PPPRTK(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdi
         else:
             aug_text = aug_text + "        " + augdir + "server-" + area + "-R-NONE-C-" + site[0] + "/" + "GREAT-GEC-5.grid"
         cur_day = cur_day + 1
-    
+
+        
     inp_obs.text = obs_text + "   "
     inp_eph.text = eph_text + "  "
     inp_sp3.text = sp3_text + "  "
     inp_clk.text = clk_text + "  "
     inp_upd.text = upd_text + "  "
     inp_aug.text = aug_text + "    "
+    inp_roti.text = roti_text + "    "
     root.find("outputs").find("log").attrib["name"] = "client-"+site[0] + "-"+mode
     tree.write(xml_file)
 
@@ -297,6 +325,7 @@ def main_iter():
     site = [argv[6]]
     mode = argv[7]
     xmlfile = argv[8]
+    ccc = int(argv[9])
     #路径的设置
     obsdir = "/cache/hanjunjie/Data/"+year+"/OBS/"
     sp3dir = "/cache/hanjunjie/Data/"+year+"/SP3/"
@@ -304,57 +333,194 @@ def main_iter():
     ephdir = "/cache/hanjunjie/Data/"+year+"/NAV/"
     dcbdir = "/home/hanjunjie/data/IONO/"+year+"/DCB/"
     upddir = "/cache/hanjunjie/Project/A-Paper-1/UPD/UPD_WithoutDCB/"
+    rotidir = "/cache/hanjunjie/Project/A-Paper-1/ROTI/"
     if mode == "Aug":
         augdir = "/cache/hanjunjie/Project/A-Paper-1/AUG_ELE/"+year+"{0:03}".format(doy)+"/server/"
     else:
-        augdir = "/cache/hanjunjie/Project/A-Paper-1/Ele_Wgt/"+year+"{0:03}".format(doy)+"/"
+        augdir = "/cache/hanjunjie/Project/A-Paper-1/Server_DisChk/"+year+"{0:03}".format(doy)+"/"
     #机构设置
     sp3_name = "gfz"
     clk_name = "gfz"
     eph_name = "brdm"
     dcb_name = "CAS"
     #区域设置
-    if (site[0]=="WUDA"):
+    Coef_a,Coef_b,Coef_x = {},{},{}
+    if (site[0]=="N047"):
         site_aug = ["XGXN","WHXZ","WHSP"]
-    if (site[0]=="WHYJ"):
+        Coef_a["G"] = 0.003147
+        Coef_b["G"] = 0.032111
+        Coef_x["G"] = -2
+        Coef_a["E"] = 0.006190
+        Coef_b["E"] = 0.048268
+        Coef_x["E"] = -2
+        Coef_a["C"] = 0.005496
+        Coef_b["C"] = 0.050537
+        Coef_x["C"] = -2
+    elif (site[0]=="WUDA"):
+        site_aug = ["XGXN","WHXZ","WHSP"]
+        Coef_a["G"] = 0.003147
+        Coef_b["G"] = 0.032111
+        Coef_x["G"] = -2
+        Coef_a["E"] = 0.006190
+        Coef_b["E"] = 0.048268
+        Coef_x["E"] = -2
+        Coef_a["C"] = 0.005496
+        Coef_b["C"] = 0.050537
+        Coef_x["C"] = -2
+    elif (site[0]=="WHYJ"):
         site_aug = ["N068","XGXN","WHXZ"]
-    if (site[0]=="N028"):
+        Coef_a["G"] = 0.003147
+        Coef_b["G"] = 0.032111
+        Coef_x["G"] = -2
+        Coef_a["E"] = 0.006190
+        Coef_b["E"] = 0.048268
+        Coef_x["E"] = -2
+        Coef_a["C"] = 0.005496
+        Coef_b["C"] = 0.050537
+        Coef_x["C"] = -2
+    elif (site[0]=="N028"):
         site_aug = ["XGXN","WUDA","WHSP"]
-    if (site[0]=="HKSC"):
+        Coef_a["G"] = 0.003147
+        Coef_b["G"] = 0.032111
+        Coef_x["G"] = -2
+        Coef_a["E"] = 0.006190
+        Coef_b["E"] = 0.048268
+        Coef_x["E"] = -2
+        Coef_a["C"] = 0.005496
+        Coef_b["C"] = 0.050537
+        Coef_x["C"] = -2
+    elif (site[0]=="HKSC"):
         site_aug = ["HKST","HKPC","HKOH"]
-    if (site[0]=="HKMW"):
+        Coef_a["G"] = 0.003147
+        Coef_b["G"] = 0.032111
+        Coef_x["G"] = -2
+        Coef_a["E"] = 0.006190
+        Coef_b["E"] = 0.048268
+        Coef_x["E"] = -2
+        Coef_a["C"] = 0.005496
+        Coef_b["C"] = 0.050537
+        Coef_x["C"] = -2
+    elif (site[0]=="HKMW"):
         site_aug = ["HKPC","HKNP","HKLM"]
-    if (site[0]=="HKTK"):
+        Coef_a["G"] = 0.003147
+        Coef_b["G"] = 0.032111
+        Coef_x["G"] = -2
+        Coef_a["E"] = 0.006190
+        Coef_b["E"] = 0.048268
+        Coef_x["E"] = -2
+        Coef_a["C"] = 0.005496
+        Coef_b["C"] = 0.050537
+        Coef_x["C"] = -2
+    elif (site[0]=="HKTK"):
         site_aug = ["T430","HKSS","HKWS"]
+        Coef_a["G"] = 0.003147
+        Coef_b["G"] = 0.032111
+        Coef_x["G"] = -2
+        Coef_a["E"] = 0.006190
+        Coef_b["E"] = 0.048268
+        Coef_x["E"] = -2
+        Coef_a["C"] = 0.005496
+        Coef_b["C"] = 0.050537
+        Coef_x["C"] = -2
+    elif (site[0]=="K057"):
+        site_aug = ["K059","V092","K042"]
+        Coef_a["G"] = 0.003147
+        Coef_b["G"] = 0.032111
+        Coef_x["G"] = -2
+        Coef_a["E"] = 0.006190
+        Coef_b["E"] = 0.048268
+        Coef_x["E"] = -2
+        Coef_a["C"] = 0.005496
+        Coef_b["C"] = 0.050537
+        Coef_x["C"] = -2
+    elif (site[0] == "N068"):
+        site_aug = ["XGXN","WHYJ","WHXZ"]
+    elif (site[0] == "XGXN"):
+        site_aug = ["WUDA","WHYJ","N068"]
+    elif (site[0] == "WHXZ"):
+        site_aug = ["WUDA","WHYJ","N047"]
+    elif (site[0] == "N047"):
+        site_aug = ["WUDA","WHDS","WHXZ"]
+    elif (site[0] == "WHDS"):
+        site_aug = ["WUDA","WHSP","WHXZ"]
+    elif (site[0] == "WHSP"):
+        site_aug = ["WUDA","WHDS","N028"]
+    elif (site[0] == "K101"):
+        site_aug = ["A010","K059","K057"]
+    elif (site[0] == "A010"):
+        site_aug = ["K101","K059","K057"]
+    elif (site[0] == "K059"):
+        site_aug = ["A010","K042","K057"]
+    elif (site[0] == "K042"):
+        site_aug = ["V092","K059","K057"]
+    elif (site[0] == "V092"):
+        site_aug = ["K042","K059","K057"]
+    elif (site[0] == "T430"):
+        site_aug = ["HKTK","HKKT","HKSS"]
+    elif (site[0] == "HKLT"):
+        site_aug = ["HKKT","HKSL","HKST"]
+    elif (site[0] == "HKKT"):
+        site_aug = ["T430","HKLT","HKST"]
+    elif (site[0] == "HKSS"):
+        site_aug = ["HKWS","HKST","HKKS"]
+    elif (site[0] == "HKWS"):
+        site_aug = ["HKSS","HKST","HKKS"]
+    elif (site[0] == "HKSL"):
+        site_aug = ["HKLT","HKCL","HKPC"]
+    elif (site[0] == "HKCL"):
+        site_aug = ["HKSL","HKNP","HKMW"]
+    elif (site[0] == "HKST"):
+        site_aug = ["T430","HKSS","HKSC"]
+    elif (site[0] == "HKKS"):
+        site_aug = ["HKST","HKSS","HKWS"]
+    elif (site[0] == "HKNP"):
+        site_aug = ["HKCL","HKMW","HKPC"]
+    elif (site[0] == "HKPC"):
+        site_aug = ["HKMW","HKSC","HKLM"]
+    elif (site[0] == "HKLM"):
+        site_aug = ["HKMW","HKSC","HKOH"]
+    elif (site[0] == "HKOH"):
+        site_aug = ["HKSC","HKLM","HKKS"]
+    else:
+        site_aug = ["T430","HKSS","HKWS"]
+        Coef_a["G"] = 0.003147
+        Coef_b["G"] = 0.032111
+        Coef_x["G"] = -2
+        Coef_a["E"] = 0.006190
+        Coef_b["E"] = 0.048268
+        Coef_x["E"] = -2
+        Coef_a["C"] = 0.005496
+        Coef_b["C"] = 0.050537
+        Coef_x["C"] = -2
     
     #多测站处理
     
     change_gen(xmlfile,int(year),doy,hour,s_length,site,sys_GNSS,site_aug,mode)
-    change_inp_PPPRTK(xmlfile,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,eph_name,augdir,int(year),doy,hour,s_length,upddir,site_aug,mode)
+    change_inp_PPPRTK(xmlfile,obsdir,site,rotidir,sp3dir,sp3_name,clkdir,clk_name,ephdir,eph_name,augdir,int(year),doy,hour,s_length,upddir,site_aug,mode)
     
     # change_inp_Aug2Grid(xmlfile,augdir,site)
-    change_out_PPPRTK(xmlfile,site,mode)
-    Coef_a,Coef_b,Coef_x = {},{},{}
-    if site[0][0:1] == "H":
-        Coef_a["G"] = 0.00063
-        Coef_b["G"] = 0.00500
-        Coef_x["G"] = -1.7
-        Coef_a["E"] = 0.00077
-        Coef_b["E"] = 0.00447
-        Coef_x["E"] = -1.7
-        Coef_a["C"] = 0.00095
-        Coef_b["C"] = 0.00571
-        Coef_x["C"] = -1.7
-    else:
-        Coef_a["G"] = -0.04749
-        Coef_b["G"] = 0.05835
-        Coef_x["G"] = 1
-        Coef_a["E"] = -0.07436
-        Coef_b["E"] = 0.0859
-        Coef_x["E"] = 1
-        Coef_a["C"] = -0.05187
-        Coef_b["C"] = 0.06587
-        Coef_x["C"] = 1
-    change_ionogrid(xmlfile,Coef_a,Coef_b,Coef_x,mode)
+    change_out_PPPRTK(xmlfile,site,mode,doy,ccc)
+    
+    # if site[0][0:1] == "H":
+    #     Coef_a["G"] = 0.000418
+    #     Coef_b["G"] = 0.005566
+    #     Coef_x["G"] = -2
+    #     Coef_a["E"] = 0.000464
+    #     Coef_b["E"] = 0.005127
+    #     Coef_x["E"] = -2
+    #     Coef_a["C"] = 0.000501
+    #     Coef_b["C"] = 0.006613
+    #     Coef_x["C"] = -2
+    # else:
+    #     Coef_a["G"] = 0.001049
+    #     Coef_b["G"] = 0.022936
+    #     Coef_x["G"] = -2
+    #     Coef_a["E"] = 0.001434
+    #     Coef_b["E"] = 0.030286
+    #     Coef_x["E"] = -2
+    #     Coef_a["C"] = 0.001628
+    #     Coef_b["C"] = 0.025685
+    #     Coef_x["C"] = -2
+    change_ionogrid(xmlfile,Coef_a,Coef_b,Coef_x,mode,ccc)
 if __name__ == "__main__":
         main_iter()

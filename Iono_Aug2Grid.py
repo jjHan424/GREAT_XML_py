@@ -222,7 +222,7 @@ def change_ionogrid(xml_file,area,rec_rm_list,rec_chk_list):
         root.find("SpaceLat").text = "   "  + "{:.2f}".format(0.5) +"       "
         root.find("CountLon").text = "   "  + "{:2d}".format(6) +"         "
         root.find("CountLat").text = "   "  + "{:2d}".format(5) +"         "
-        root.find("bias_baseline").text = "  "  + "{:.2f}".format(150) +"     "
+        root.find("bias_baseline").text = "  "  + "{:.2f}".format(1500000000) +"     "
         root.find("maxdis_wgt").text = "     "  + "{:.2f}".format(100) +"     "
     if (area == "HongKong"):  
         root.find("RefLon").text = "     "  + "{:3.2f}".format(113.8) +"     "
@@ -231,8 +231,26 @@ def change_ionogrid(xml_file,area,rec_rm_list,rec_chk_list):
         root.find("SpaceLat").text = "   "  + "{:.2f}".format(0.1) +"       "
         root.find("CountLon").text = "   "  + "{:2d}".format(6) +"         "
         root.find("CountLat").text = "   "  + "{:2d}".format(5) +"         "
-        root.find("bias_baseline").text = "  "  + "{:.2f}".format(50) +"     "
+        root.find("bias_baseline").text = "  "  + "{:.2f}".format(1500000000) +"     "
         root.find("maxdis_wgt").text = "     "  + "{:.2f}".format(30) +"     "
+    if (area == "GuangZhou"):  
+        root.find("RefLon").text = "     "  + "{:3.2f}".format(112.6) +"     "
+        root.find("RefLat").text = "     "  + "{:3.2f}".format(24.0) +"      "
+        root.find("SpaceLon").text = "   "  + "{:.2f}".format(0.3) +"       "
+        root.find("SpaceLat").text = "   "  + "{:.2f}".format(0.3) +"       "
+        root.find("CountLon").text = "   "  + "{:2d}".format(6) +"         "
+        root.find("CountLat").text = "   "  + "{:2d}".format(6) +"         "
+        root.find("bias_baseline").text = "  "  + "{:.2f}".format(1500000000) +"     "
+        root.find("maxdis_wgt").text = "     "  + "{:.2f}".format(100) +"     "
+    if (area == "HeBei"):  
+        root.find("RefLon").text = "     "  + "{:3.2f}".format(113.1) +"     "
+        root.find("RefLat").text = "     "  + "{:3.2f}".format(41.8) +"      "
+        root.find("SpaceLon").text = "   "  + "{:.2f}".format(0.8) +"       "
+        root.find("SpaceLat").text = "   "  + "{:.2f}".format(0.8) +"       "
+        root.find("CountLon").text = "   "  + "{:2d}".format(6) +"         "
+        root.find("CountLat").text = "   "  + "{:2d}".format(5) +"         "
+        root.find("bias_baseline").text = "  "  + "{:.2f}".format(1500000000) +"     "
+        root.find("maxdis_wgt").text = "     "  + "{:.2f}".format(200) +"     "
     root.find("rec_rm").text = " "
     for cur_site in rec_rm_list:
         if (cur_site == "NONE"):
@@ -277,10 +295,19 @@ def main_iter():
     #区域设置
     # if (area=="WuHan1"):
     #     site = ["WHYJ","WHXZ","WHDS","WHSP","N004","N010","N028","N047","N062","N068","XGXN","WUDA","N032","E033"]
+    # if (area=="HongKong"):
+    #     site = ["HKTK","T430","HKLT","HKKT","HKSS","HKWS","HKSL","HKST","HKKS","HKCL","HKSC","HKPC","HKNP","HKMW","HKLM","HKOH"]
+    # if (area=="WuHan"):
+    #     site = ["WHYJ","WHXZ","WHDS","WHSP","N028","N047","N068","XGXN","WUDA"]
     if (area=="HongKong"):
         site = ["HKTK","T430","HKLT","HKKT","HKSS","HKWS","HKSL","HKST","HKKS","HKCL","HKSC","HKPC","HKNP","HKMW","HKLM","HKOH"]
     if (area=="WuHan"):
+        # site = ["WHSP","N028","N047","N068","WUDA"]
         site = ["WHYJ","WHXZ","WHDS","WHSP","N028","N047","N068","XGXN","WUDA"]
+    if (area=="GuangZhou"):
+        site = ["H139","H038","H035","H053","H074","H068","H055"]
+    if (area=="HeBei"):
+        site = ["K042","K057","K059","K101","A010","V092","K070"]
     #多测站处理
     rec_rm_list = rec_rm.split(",")
     rec_chk_list = rec_chk.split(",")
