@@ -1,0 +1,272 @@
+<config>
+ <gen>
+   <beg> 2021-12-05 00:00:00 </beg>
+   <end> 2021-12-05 23:59:55 </end>
+   <sys> GPS BDS GAL </sys>
+   <rec> 
+	1012 1022 1140 3026 2KJ1 A010
+    C004 D002 D007 D017 D018 E033
+    F094 H035 H038 H053 H055 H068
+    H074 H139 I092 J003 K042 K057
+    K059 K070 K101 K110 M175 M192
+    N004 N062 N010 N032 N028 N047
+    N068 O038 P053 S028 T023 T044
+    U029 V092 W038 X046 Y065 CQKZ
+	CZDZ FYFN NCAY NYNZ SXXA WHDS
+	WHSP WHXK WHXZ WHYJ WUDA XGXN
+	XXFH YYJK
+   </rec>
+   <int> 5 </int>
+   <sat_rm> C01 C02 C03 C04 C05 </sat_rm>
+   <est> LSQ </est> 
+ </gen>
+
+ <inputs>
+   <rinexo> 
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/10123390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/10223390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/11403390.21o
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/30263390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/2KJ13390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/A0103390.21o
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/C0043390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/D0023390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/D0073390.21o
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/D0173390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/D0183390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/E0333390.21o
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/F0943390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/H0353390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/H0383390.21o
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/H0533390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/H0553390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/H0683390.21o
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/H0743390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/H1393390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/I0923390.21o
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/J0033390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/K0423390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/K0573390.21o
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/K0593390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/K0703390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/K1013390.21o
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/K1103390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/M1753390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/M1923390.21o
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/N0043390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/N0623390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/N0103390.21o
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/N0323390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/N0283390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/N0473390.21o
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/N0683390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/O0383390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/P0533390.21o
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/S0283390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/T0233390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/T0443390.21o
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/U0293390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/V0923390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/W0383390.21o
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/X0463390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/Y0653390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/CQKZ3390.21o
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/CZDZ3390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/FYFN3390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/NCAY3390.21o
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/NYNZ3390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/SXXA3390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/WHDS3390.21o
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/WHSP3390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/WHXK3390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/WHXZ3390.21o
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/WHYJ3390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/WUDA3390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/XGXN3390.21o
+	/home/hanjunjie/data/IONO/2021/OBS/339/GRID/XXFH3390.21o  /home/hanjunjie/data/IONO/2021/OBS/339/GRID/YYJK3390.21o
+   </rinexo>
+   <rinexn> 
+	/home/hanjunjie/data/IONO/2021/NAV/brdm3390.21n
+   </rinexn>
+   <rinexc> /home/hanjunjie/data/IONO/2021/CLK/gfz21870.clk </rinexc>
+   <sp3> /home/hanjunjie/data/IONO/2021/SP3/gfz21870.sp3 </sp3>
+   
+   <atx> /cache/hanjunjie/Project/A-Paper-1/model/igs_absolute_14_BDS.atx </atx>
+   <blq>/cache/hanjunjie/Project/A-Paper-1/model/oceanload </blq>
+   <DE> /cache/hanjunjie/Project/A-Paper-1/model/jpleph_de405_great </DE>
+   <poleut1> /cache/hanjunjie/Project/A-Paper-1/model/poleut_great </poleut1>
+   <leapsecond> /cache/hanjunjie/Project/A-Paper-1/model/leap_seconds </leapsecond>
+ </inputs>
+
+ <outputs append="false" verb="0">
+   <log> upd/LOGRT.log </log>
+   <flt> upd/$(rec)-GEC-F.flt  </flt>
+   <enu> upd/$(rec)-GEC-F.enu  </enu>
+   <upd> </upd>
+ </outputs>
+
+<process frequency="2" 
+		 crd_constr="EST"  
+		 grad_mf="TILTING" 
+		 gradient="false" 
+		 isleo="false" 
+		 lsq_mode="EPO" 
+		 minimum_elev="7" 
+		 obs_combination="RAW_ALL" 
+		 obs_weight="PARTELE" 
+		 phase="true" 
+		 ion_model  = "SION" 
+		 tropo="true" 
+		 tropo_mf="gmf" 
+		 tropo_model="saastamoinen" 
+		 turboedit_soft="./turboedit" 
+		 slip_model="turboedit" 
+		 ztd_model="PWC:120"
+		 bds_code_bias_corr="true"
+		 npp_model="UPD"
+		 CompAug="YES"
+		 realtime="false">
+<ifb_model> EST_REC_IFB </ifb_model>
+</process>
+
+<receiver>
+<rec id="1012"      X=" 229130.3757 "  Y="4980550.3115 "  Z="3965917.7162 "/>        
+<rec id="1022"      X=" 1173762.5309"  Y="4771167.3598 "  Z="4055171.5110 "/>        
+<rec id="1140"      X=" 279417.8201 "  Y="4588185.0076 "  Z="4407977.3670 "/>        
+<rec id="3026"      X="-114107.1729 "  Y="5549619.3828 "  Z="3138413.4621 "/>        
+<rec id="2KJ1"      X="-1803556.2860"  Y="4511620.6479 "  Z="4119870.7572 "/>        
+<rec id="A010"      X="-2175297.1008"  Y="4330326.0822 "  Z="4133584.2465 "/>        
+<rec id="C004"      X="-2831996.1828"  Y="4639167.1961 "  Z="3326347.4038 "/>        
+<rec id="D002"      X="-1624118.1201"  Y="5293443.1987 "  Z="3155893.4321 "/>        
+<rec id="D007"      X="-1652647.2510"  Y="5317944.9930 "  Z="3100208.4141 "/>        
+<rec id="D017"      X="-1577067.1688"  Y="5319985.4217 "  Z="3135359.8931 "/>        
+<rec id="D018"      X="-1523481.8155"  Y="5350351.3299 "  Z="3110084.5443 "/>        
+<rec id="F094"      X="-2738682.6389"  Y=" 5131437.1047"  Z=" 2608733.8832"/>        
+<rec id="H035"      X="-2350235.7075"  Y=" 5392947.6764"  Z=" 2456207.1204"/>        
+<rec id="H038"      X="-2285759.2911"  Y=" 5415693.1021"  Z=" 2466909.0824"/>        
+<rec id="H053"      X="-2367788.4479"  Y=" 5361640.4662"  Z=" 2507061.8313"/>        
+<rec id="H055"      X="-2264025.9969"  Y=" 5404743.2007"  Z=" 2510331.5219"/>        
+<rec id="H068"      X="-2286022.6553"  Y=" 5376993.8844"  Z=" 2549424.5151"/>        
+<rec id="H074"      X="-2329423.1091"  Y=" 5350872.0368"  Z=" 2565026.3493"/>        
+<rec id="H139"      X="-2318154.5940"  Y=" 5389607.2814"  Z=" 2493531.3614"/>        
+<rec id="I092"      X="-1644956.9142"  Y=" 5351663.5981"  Z=" 3046939.3309"/>        
+<rec id="J003"      X="-2042166.4218"  Y=" 5699068.7620"  Z=" 2001054.0116"/>        
+<rec id="K042"      X="-2132034.8698"  Y=" 4509248.5590"  Z=" 3961882.4227"/>        
+<rec id="K057"      X="-2061539.3526"  Y=" 4485887.5838"  Z=" 4026181.9564"/>        
+<rec id="K059"      X="-2211742.6033"  Y=" 4402276.5049"  Z=" 4037240.8877"/>        
+<rec id="K070"      X="-2059482.5351"  Y=" 4437621.0278"  Z=" 4080017.7086"/>        
+<rec id="K101"      X="-2044552.7119"  Y=" 4330957.8774"  Z=" 4200451.8755"/>        
+<rec id="K110"      X="-2193538.9723"  Y=" 4186563.1458"  Z=" 4270362.1406"/>        
+<rec id="M175"      X="-2457297.2649"  Y=" 3252868.5944"  Z=" 4889023.5363"/>        
+<rec id="M192"      X="-3055271.7404"  Y=" 3299231.1088"  Z=" 4508383.6400"/>        
+<rec id="N004"      X="-2334707.5142"  Y=" 5037347.5891"  Z=" 3128918.7477"/>        
+<rec id="N028"      X="-2191056.9238"  Y=" 5053129.9326"  Z=" 3205815.9701"/>        
+<rec id="N047"      X="-2350716.9401"  Y=" 4955782.5397"  Z=" 3244265.6251"/>        
+<rec id="N068"      X="-2222210.0722"  Y=" 4963941.9412"  Z=" 3320986.9551"/>        
+<rec id="O038"      X="-2214811.5859"  Y=" 5233034.6830"  Z=" 2887095.7130"/>        
+<rec id="P053"      X="-2437355.8683"  Y=" 3722275.4686"  Z=" 4554919.6797"/>        
+<rec id="S028"      X="-2584092.9621"  Y=" 4097146.8061"  Z=" 4135422.8141"/>        
+<rec id="T023"      X="-1071265.4818"  Y=" 5047657.6318"  Z=" 3740225.9338"/>        
+<rec id="T044"      X="-418392.2165 "  Y="5013154.2580 "  Z="3912731.7547 "/>        
+<rec id="U029"      X="-2528393.4479"  Y=" 4523207.4813"  Z=" 3706539.3272"/>        
+<rec id="V092"      X="-1980661.4194"  Y=" 4556162.0488"  Z=" 3989739.6768"/>        
+<rec id="W038"      X="-1700829.8878"  Y=" 4977599.5756"  Z=" 3595751.3237"/>        
+<rec id="X046"      X="-1545933.5651"  Y=" 5288130.8410"  Z=" 3203238.4130"/>        
+<rec id="Y065"      X="-1010438.1426"  Y=" 5605275.8275"  Z=" 2866286.3017"/>   
+<rec id="CQKZ"      X="-1711714.3732"  Y="5191535.6262"   Z="3275421.4264"/>
+<rec id="CZDZ"      X="-2502129.6701"  Y="4899346.2831"   Z="3216694.3620"/>
+<rec id="FYFN"      X="-2323705.6753"  Y="4846880.7037"   Z="3422046.3987"/>
+<rec id="NCAY"      X="-2410714.4687"  Y="5044490.3032"   Z="3059369.4221"/>
+<rec id="NYNZ"      X="-2030743.2836"  Y="4922480.6282"   Z="3499452.6484"/>
+<rec id="SXXA"      X="-1714894.2291"  Y="4993262.1189"   Z="3567496.2348"/>
+<rec id="WHDS"      X="-2309234.0818"  Y="4998958.4350"   Z="3207719.1536"/>
+<rec id="WHSP"      X="-2277732.7550"  Y="5031747.7321"   Z="3179072.7887"/>
+<rec id="WHXK"      X="-2231642.4714"  Y="5043039.9125"   Z="3193690.4590"/>
+<rec id="WHXZ"      X="-2299689.4393"  Y="4975638.9824"   Z="3250284.5073"/>
+<rec id="WHYJ"      X="-2252813.6651"  Y="4973121.8284"   Z="3286531.3126"/>
+<rec id="WUDA"      X="-2267761.1796"  Y="5009370.8535"   Z="3220970.6102"/>
+<rec id="XGXN"      X="-2220831.1448"  Y="5007544.3057"   Z="3256075.5557"/>
+<rec id="XXFH"      X="-1889892.0484"  Y="5302883.1432"   Z="2988668.1426"/>
+<rec id="YYJK"      X="-2186993.9342"  Y="5114395.9350"   Z="3110636.6860"/>    
+<rec id="N062"      X="-2193162.1236"  Y="4996265.6098"   Z="3291753.9553"/>
+<rec id="N010"      X="-2281398.4103"  Y="5046329.8462"   Z="3153471.3945"/>
+<rec id="N032"      X="-2141843.9874"  Y="5071953.5632"   Z="3209315.6167"/>
+<rec id="E033"      X="-2340806.3005"  Y="4922578.8973"   Z="3302011.7872"/>   
+</receiver>
+
+
+ <parameters>
+<STA ID="1012" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="1022" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="1140" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="3026" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="2KJ1" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="A010" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="C004" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="D002" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="D007" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="D017" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="D018" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="F094" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="H035" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="H038" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="H053" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="H055" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="H068" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="H074" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="H139" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="I092" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="J003" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="K042" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="K057" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="K059" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="K070" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="K101" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="K110" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="M175" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="M192" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="N004" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="N028" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="N047" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="N068" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="O038" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="P053" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="S028" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="T023" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="T044" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="U029" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="V092" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="W038" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="X046" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="Y065" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="CQKZ" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="CZDZ" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="FYFN" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="NCAY" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="NYNZ" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="SXXA" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="WHDS" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="WHSP" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="WHXK" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="WHXZ" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="WHYJ" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="WUDA" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="XGXN" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="XXFH" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="YYJK" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="N062" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="N010" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="N032" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="E033" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+</parameters>
+
+<turboedit  lite_mode="true" >
+ <ephemeris  valid="true"  /> 
+ <check_mw   valid="true" mw_limit="2.0" />
+ <check_gf   valid="true" gf_limit="0.05" />
+ <smooth_win value ="25" />
+ <check_gap  gap_limit="60" valid="true" />
+</turboedit>
+
+<ambiguity>
+   <fix_mode> NO </fix_mode>       <!-- ROUND/SEARCH/NO -->
+   <part_fix>  YES  </part_fix>       <!--  YES/NO -->
+   <apply_irc> NO </apply_irc> 
+   <part_fix_num> 3 </part_fix_num>
+   <ratio>  2.0  </ratio>            <!-- Threshold in LAMBDA method -->
+   <set_refsat> NO </set_refsat>
+   <add_leo>  NO   </add_leo>
+   <all_baselines>  NO  </all_baselines>
+   <min_common_time> 0 </min_common_time>                 
+   <baseline_length_limit>  3500  </baseline_length_limit>   <!-- Baseline length limit/km-->
+   <widelane_interval> 30 </widelane_interval>               <!-- seconds -->
+   <widelane_decision     maxdev = "0.4" maxsig = "0.10" alpha = "1000" />   <!-- deriation, sigma in WL-cycle -->
+   <narrowlane_decision   maxdev = "0.3" maxsig = "0.10" alpha = "1000" />   <!-- deriation, sigma in NL-cycle -->
+ </ambiguity>
+
+
+ <bds sigma_C="0.6" sigma_L="0.01" >
+ <freq> 1 2</freq>
+ <band> 2 7</band>
+ </bds>
+
+ <gps sigma_C="0.6" sigma_L="0.01" >
+  <freq> 1 2</freq>
+  <band> 1 2 </band>
+ </gps>
+ 
+ <gal sigma_C="0.6" sigma_L="0.01" >
+  <freq> 1 2 </freq>
+  <band> 1 5 </band>
+ </gal>
+ 
+ <glo sigma_C="0.6" sigma_L="0.01" >
+  <freq> 1 2 </freq>
+  <band> 1 2 </band>
+ </glo>
+ 
+ <qzs sigma_C="0.6" sigma_L="0.01" >
+  <freq> 1 2 </freq>
+  <band> 1 2 </band>
+ </qzs>
+</config>

@@ -1,0 +1,246 @@
+<config>
+ <gen>
+   <beg> 2021-10-29 00:00:00 </beg>
+   <end> 2021-10-29 01:00:00 </end>
+   <sys> GPS GAL BDS </sys>
+   <rec>
+ 1012  1022  1140  3026  2KJ1  A010 
+ C004  D002  D007  D017  D018  E033 
+ F094  H035  H038  H053  H055  H068 
+ H074  H139  I092  J003  K042  K057 
+ K059  K070  K101  K110  M175  M192 
+ N004  N062  N010  N032  N028  N047 
+ N068  O038  P053  S028  T023  T044 
+ U029  V092  W038  X046  Y065  CQKZ 
+ CZDZ  FYFN  NCAY  NYNZ  SXXA  WHDS 
+ WHSP  WHXK  WHXZ  WHYJ  XGXN  XXFH 
+ YYJK 
+   </rec>
+   <int> 30 </int>
+   <sat_rm> C01 C02 C03 C04 C05 </sat_rm>
+   <est> LSQ </est> 
+ </gen>
+
+ <inputs>
+   <rinexo>
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\10123020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\10223020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\11403020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\30263020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\2KJ13020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\A0103020.21o
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\C0043020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\D0023020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\D0073020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\D0173020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\D0183020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\E0333020.21o
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\F0943020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\H0353020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\H0383020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\H0533020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\H0553020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\H0683020.21o
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\H0743020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\H1393020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\I0923020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\J0033020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\K0423020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\K0573020.21o
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\K0593020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\K0703020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\K1013020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\K1103020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\M1753020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\M1923020.21o
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\N0043020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\N0623020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\N0103020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\N0323020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\N0283020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\N0473020.21o
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\N0683020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\O0383020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\P0533020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\S0283020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\T0233020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\T0443020.21o
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\U0293020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\V0923020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\W0383020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\X0463020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\Y0653020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\CQKZ3020.21o
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\CZDZ3020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\FYFN3020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\NCAY3020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\NYNZ3020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\SXXA3020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\WHDS3020.21o
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\WHSP3020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\WHXK3020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\WHXZ3020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\WHYJ3020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\XGXN3020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\XXFH3020.21o
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\YYJK3020.21o
+   </rinexo>
+   <rinexn>  E:/1Master_2/2-UPD_Test/Pro_2021302/data/brdm3020.21n  </rinexn>
+   <rinexc>  E:/1Master_2/2-UPD_Test/Pro_2021302/data/gfz21815.clk  </rinexc>
+   <sp3>  E:/1Master_2/2-UPD_Test/Pro_2021302/data/gfz21815.sp3  </sp3>
+   
+   <atx> /cache/hanjunjie/Project/B-IUGG/model/igs_absolute_14.atx </atx>
+   <blq>/cache/hanjunjie/Project/A-Paper-1/model/oceanload </blq>
+   <DE> /cache/hanjunjie/Project/A-Paper-1/model/jpleph_de405_great </DE>
+   <poleut1> /cache/hanjunjie/Project/B-IUGG/model/poleut1 </poleut1>
+   <leapsecond> /cache/hanjunjie/Project/A-Paper-1/model/leap_seconds </leapsecond>
+ </inputs>
+
+ <outputs append="false" verb="0">
+   <log> upd/LOGRT.log </log>
+   <flt> upd/$(rec)-GEC-F.flt  </flt>
+   <enu> upd/$(rec)-GEC-F.enu  </enu>
+   <upd> </upd>
+ </outputs>
+
+<process CompAug="YES" bds_code_bias_corr="true" crd_constr="EST" frequency="2" grad_mf="TILTING" gradient="false" ion_model="SION" isleo="false" lsq_mode="EPO" minimum_elev="7" npp_model="UPD" obs_combination="IONO_FREE" obs_weight="PARTELE" phase="true" realtime="false" slip_model="turboedit" tropo="true" tropo_mf="gmf" tropo_model="saastamoinen" turboedit_soft="./turboedit" ztd_model="PWC:120">
+<ifb_model> EST_REC_IFB </ifb_model>
+</process>
+
+<receiver>
+<rec X="4594489.8680" Y="-678367.9920" Z="4357065.8700" id = "ACOR" />
+<rec X="4696989.6880" Y="723994.1970" Z="4239678.3040" id = "AJAC" />
+<rec X="5105220.2860" Y="-219278.8340" Z="3804386.8690" id = "ALME" />
+<rec X="3472288.7109" Y="-355730.7475" Z="5320461.0060" id = "ARIS" />
+<rec X="4164313.0000" Y="803525.9000" Z="4748474.9000" id = "AUBG" />
+<rec X="4349466.2030" Y="326196.0250" Z="4638521.7510" id = "AUTN" />
+<rec X="3917525.3649" Y="1988523.8684" Z="4608585.4595" id = "BACA" />
+<rec X="3595800.9227" Y="1579447.4732" Z="5008953.7900" id = "BRTS" />
+<rec X="4081882.3774" Y="1410011.1420" Z="4678199.3910" id = "BUTE" />
+<rec X="4398306.5511" Y="704149.6107" Z="4550154.4542" id = "COMO" />
+<rec X="4097210.9145" Y="1731870.1945" Z="4556026.6136" id = "DEVA" />
+<rec X="4595218.5637" Y="2039433.4368" Z="3912624.7622" id = "DYNG" />
+<rec X="4483373.8620" Y="160636.3000" Z="4519408.7340" id = "EGLT" />
+<rec X="4192710.7230" Y="562398.9610" Z="4757685.7670" id = "ENTZ" />
+<rec X="3688287.2000" Y="941628.1000" Z="5100608.2000" id = "GELL" />
+<rec X="3918911.8000" Y="687523.9000" Z="4968545.6000" id = "GOET" />
+<rec X="3342516.8603" Y="2005751.2254" Z="5031578.0325" id = "GOML" />
+<rec X="3464660.8322" Y="845747.1543" Z="5270269.1557" id = "HAS6" />
+<rec X="3706067.0000" Y="513804.1000" Z="5148174.6000" id = "HELG" />
+<rec X="2156253.2226" Y="944971.0584" Z="5908310.5253" id = "HETT" />
+<rec X="3882053.2677" Y="309346.2085" Z="5034330.2213" id = "IJMU" />
+<rec X="3427172.4104" Y="-252834.3500" Z="5355255.4939" id = "INVR" />
+<rec X="3183614.9330" Y="1276707.5630" Z="5359315.0420" id = "IRBE" />
+<rec X="4456584.2859" Y="2278765.5315" Z="3939930.8737" id = "IZMI" />
+<rec X="3524523.2670" Y="1329693.4580" Z="5129846.1890" id = "LAMA" />
+<rec X="3798344.7000" Y="955553.3000" Z="5017221.9000" id = "LDB2" />
+<rec X="3898736.2000" Y="855345.5000" Z="4958372.6000" id = "LEIJ" />
+<rec X="3022567.2715" Y="802951.3077" Z="5540685.8691" id = "LEK6" />
+<rec X="3728601.8776" Y="1317402.2599" Z="4987811.1403" id = "LODZ" />
+<rec X="3104211.1208" Y="998381.5793" Z="5463295.5801" id = "LOV6" />
+<rec X="3760811.3618" Y="-656417.5530" Z="5092375.9818" id = "MAH1" />
+<rec X="4919369.6850" Y="225499.5840" Z="4039849.5920" id = "MALL" />
+<rec X="4630532.9950" Y="433946.0470" Z="4350142.4780" id = "MARS" />
+<rec X="2890651.5843" Y="1310295.1304" Z="5513957.1076" id = "METG" />
+<rec X="3698554.6280" Y="2308675.2670" Z="4639770.4340" id = "MIKL" />
+<rec X="4657523.3759" Y="1404985.8901" Z="4111081.2370" id = "MMET" />
+<rec X="3337519.5888" Y="1742282.5859" Z="5131459.3728" id = "MNSK" />
+<rec X="4359416.1634" Y="2874116.7593" Z="3650777.6844" id = "NICO" />
+<rec X="3199101.5637" Y="932233.0138" Z="5420316.8674" id = "NOR7" />
+<rec X="2866981.6126" Y="1129668.5907" Z="5565665.4707" id = "OLK2" />
+<rec X="4498451.8100" Y="1708266.8300" Z="4173591.7800" id = "ORID" />
+<rec X="2763889.5487" Y="733243.4889" Z="5682651.6763" id = "OST6" />
+<rec X="2368886.8630" Y="994496.3299" Z="5818476.6855" id = "OVE6" />
+<rec X="3411557.3382" Y="2348463.8352" Z="4834396.6426" id = "POLV" />
+<rec X="2510901.6402" Y="1130426.3642" Z="5733838.2503" id = "PYHA" />
+<rec X="3645376.2000" Y="531202.1000" Z="5189297.1000" id = "RANT" />
+<rec X="3550066.9255" Y="1093331.7908" Z="5167561.9545" id = "REDZ" />
+<rec X="2410840.8135" Y="1388075.8691" Z="5720514.3774" id = "ROM2" />
+<rec X="2100286.7560" Y="1162091.4175" Z="5889701.0339" id = "SAVU" />
+<rec X="4639940.8600" Y="-136225.4840" Z="4359551.9950" id = "SCOA" />
+<rec X="3546267.6888" Y="2204463.9616" Z="4805379.1936" id = "SMLA" />
+<rec X="3918752.9869" Y="-7694.3350" Z="5015570.0772" id = "SNEO" />
+<rec X="3328988.6610" Y="761917.7752" Z="5369031.4815" id = "SPT7" />
+<rec X="2838911.3031" Y="903817.0206" Z="5620660.9185" id = "SUN6" />
+<rec X="3963403.8030" Y="-275880.9375" Z="4972970.0066" id = "SWAS" />
+<rec X="3737870.3212" Y="1791703.8119" Z="4831815.6570" id = "TER2" />
+<rec X="3797283.4843" Y="-423484.6814" Z="5090128.4661" id = "TLL1" />
+<rec X="2102928.8112" Y="721619.3480" Z="5958196.1255" id = "TRO1" />
+<rec X="3282527.0140" Y="1315357.7570" Z="5290482.4670" id = "VAIN" />
+<rec X="1844607.6522" Y="1109719.1069" Z="5983936.0369" id = "VARS" />
+<rec X="4849833.7962" Y="-335049.1807" Z="4116014.8247" id = "VILL" />
+<rec X="4031947.4569" Y="370150.8058" Z="4911905.7665" id = "WARE" />
+<rec X="4075578.4000" Y="931852.7500" Z="4801569.9800" id = "WTZZ" />
+<rec X="4425737.1637" Y="1204734.5084" Z="4417173.4702" id = "ZADA" />
+<rec X="3904633.3059" Y="1360191.8777" Z="4840630.7774" id = "ZYWI" />   
+</receiver>
+
+
+ <parameters>
+<STA ID="ACOR" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="AJAC" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="ALME" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="ARIS" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="AUBG" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="AUTN" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="BACA" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="BRTS" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="BUTE" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="COMO" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="DEVA" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="DYNG" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="EGLT" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="ENTZ" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="GELL" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="GOET" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="GOML" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="HAS6" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="HELG" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="HETT" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="IJMU" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="INVR" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="IRBE" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="IZMI" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="LAMA" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="LDB2" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="LEIJ" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="LEK6" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="LODZ" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="LOV6" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="MAH1" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="MALL" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="MARS" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="METG" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="MIKL" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="MMET" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="MNSK" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="NICO" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="NOR7" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="OLK2" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="ORID" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="OST6" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="OVE6" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="POLV" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="PYHA" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="RANT" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="REDZ" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="ROM2" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="SAVU" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="SCOA" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="SMLA" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="SNEO" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="SPT7" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="SUN6" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="SWAS" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="TER2" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="TLL1" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="TRO1" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="VAIN" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="VARS" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="VILL" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="WARE" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="WTZZ" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="ZADA" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="ZYWI" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+</parameters>
+
+<turboedit lite_mode="true">
+ <ephemeris valid="true" /> 
+ <check_mw mw_limit="2.0" valid="true" />
+ <check_gf gf_limit="0.05" valid="true" />
+ <smooth_win value="25" />
+ <check_gap gap_limit="60" valid="true" />
+</turboedit>
+
+<ambiguity>
+   <fix_mode> NO </fix_mode>       
+   <part_fix>  YES  </part_fix>       
+   <apply_irc> NO </apply_irc> 
+   <part_fix_num> 3 </part_fix_num>
+   <ratio>  2.0  </ratio>            
+   <set_refsat> NO </set_refsat>
+   <add_leo>  NO   </add_leo>
+   <all_baselines>  NO  </all_baselines>
+   <min_common_time> 0 </min_common_time>                 
+   <baseline_length_limit>  3500  </baseline_length_limit>   
+   <widelane_interval> 30 </widelane_interval>               
+   <widelane_decision alpha="1000" maxdev="0.4" maxsig="0.10" />   
+   <narrowlane_decision alpha="1000" maxdev="0.3" maxsig="0.10" />   
+ </ambiguity>
+
+
+ <bds sigma_C="0.6" sigma_L="0.01">
+ <freq> 1 2</freq>
+ <band> 2 6</band>
+ </bds>
+
+ <gps sigma_C="0.6" sigma_L="0.01">
+  <freq> 1 2</freq>
+  <band> 1 2 </band>
+ </gps>
+ 
+ <gal sigma_C="0.6" sigma_L="0.01">
+  <freq> 1 2 </freq>
+  <band> 1 5 </band>
+ </gal>
+ 
+ <glo sigma_C="0.6" sigma_L="0.01">
+  <freq> 1 2 </freq>
+  <band> 1 2 </band>
+ </glo>
+ 
+ <qzs sigma_C="0.6" sigma_L="0.01">
+  <freq> 1 2 </freq>
+  <band> 1 2 </band>
+ </qzs>
+</config>
