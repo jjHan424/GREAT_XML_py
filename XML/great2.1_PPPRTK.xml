@@ -98,9 +98,12 @@
 	<CompAug> NO </CompAug>	
 	<ifb_model> EST_REC_IFB </ifb_model>
 </process>
+<<<<<<<< HEAD:XML/great2.1_PPPRTK.xml
 <!-- <filter
 noise_vion="10" reset_par = "3600"
 /> -->
+========
+>>>>>>>> 02573f5229232b53e6bca5adc0264edf0136af7b:great2.1_PPPRTK.xml
 <filter
 noise_vion="10"
 />
