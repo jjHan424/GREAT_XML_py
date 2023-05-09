@@ -1,0 +1,376 @@
+<config>
+ <gen>
+   <beg> 2021-10-30 03:00:00 </beg>
+   <end> 2021-10-30 04:59:55 </end>
+   <sys> GPS GAL BDS </sys>
+   <rec> HKSC </rec>
+   <rover> HKSC </rover> 
+   <int> 5 </int>
+   <est> FLT </est> 
+   <client> YES </client>
+   <sat_rm> C01 C02 C03 C04 C05 </sat_rm>
+ </gen>
+
+ <inputs>
+
+   <rinexo>
+        E:\1Master_2\1-ZTD\Pro_20211030-303\data\hksc3030.21o
+   </rinexo>
+   
+   <rinexn>  E:/1Master_2/1-ZTD/Pro_20211030-303/data/brdm3030.21n  </rinexn>
+   
+   
+   
+   
+   <sp3>  E:/1Master_2/1-ZTD/Pro_20211030-303/data/gfz21816.sp3  </sp3>
+   <rinexc>  E:/1Master_2/1-ZTD/Pro_20211030-303/data/gfz21816.clk  </rinexc>
+   
+   
+   
+   <upd>
+  E:/1Master_2/1-ZTD/Pro_20211030-303/data/upd_nl_2021303_GEC
+  E:/1Master_2/1-ZTD/Pro_20211030-303/data/upd_wl_2021303_GEC
+  </upd>
+  <aug_grid>
+        E:/1Master_2/1-ZTD/Pro_20211030-303/data/GREAT-GEC-5.grid    </aug_grid>
+  <aug>
+        E:/1Master_2/1-ZTD/Pro_20211030-303/data/GREAT-GEC-5.grid    </aug>
+   <roti>  E:/1Master_2/1-ZTD/Pro_20211030-303/data/HKSC2021303_GEC.ismr    </roti>
+
+   
+   <atx> /cache/hanjunjie/Project/A-Paper-1/model/igs_absolute_14_BDS.atx </atx>
+   <blq>/cache/hanjunjie/Project/A-Paper-1/model/oceanload </blq>
+   <de> /cache/hanjunjie/Project/A-Paper-1/model/jpleph_de405_great </de>
+   <eop> /cache/hanjunjie/Project/A-Paper-1/model/poleut_great </eop>
+   <leapsecond> /cache/hanjunjie/Project/A-Paper-1/model/leap_seconds </leapsecond>
+   
+   
+   
+ </inputs>
+
+ <outputs append="false" verb="2">
+   <log level="DEBUG" name="client-HKSC-Grid_Ele_R" type="BASIC" />
+   <ppp>client_ZWD/$(rec)-GEC.ppp </ppp>
+   <flt>client_ZWD/$(rec)-GEC.flt </flt>
+   <enu>client_ZWD/$(rec)-GEC.enu </enu>
+   <kml>client_ZWD/$(rec)-GEC.kml  </kml>
+   <aug>client_ZWD/$(rec)-GEC-I.aug  </aug>
+ </outputs>
+
+ <process>
+	<frequency> 2 </frequency>
+	<realtime> FALSE </realtime>
+	<simulation> FALSE </simulation>
+	
+	<crd_constr> EST </crd_constr>
+	<phase> TRUE </phase>
+	<doppler> FALSE </doppler>
+	<tropo> TRUE </tropo>
+	<iono> TRUE </iono>
+	<gradient> FALSE </gradient>
+	<tropo_model> saastamoinen </tropo_model>
+	<tropo_mf> gmf </tropo_mf>
+	<sig_init_crd> 100 </sig_init_crd>
+	<sig_init_vel> 1 </sig_init_vel>
+	
+	<sig_init_ztd> 30 </sig_init_ztd>
+	<sig_init_amb> 10 </sig_init_amb>
+	<sig_init_gal> 10 </sig_init_gal> 
+	<sig_init_glo> 10 </sig_init_glo>
+	<sig_init_bds> 10 </sig_init_bds>
+	
+	<sig_init_vion> 100 </sig_init_vion>
+	<minimum_elev> 7 </minimum_elev> 
+	<obs_combination> RAW_ALL </obs_combination>
+	<max_res_norm> 3 </max_res_norm>
+	<pos_kin> FALSE </pos_kin>
+	<ion_model> SION </ion_model>
+	<obs_weight> SINEL </obs_weight>
+	<auto_band> FALSE </auto_band> 
+	<sd_sat> FALSE </sd_sat>
+	<min_sat> 4 </min_sat>
+	<slip_model> turboedit </slip_model>
+	<bds_code_bias_corr> true </bds_code_bias_corr>
+	<npp_model> PPP_RTK </npp_model> 
+	<CompAug> NO </CompAug>	
+	<ifb_model> EST_REC_IFB </ifb_model>
+</process>
+<filter noise_vion="10" noise_crd = "0.1"/>
+<npp>
+	   <client> YES </client>                               
+	   <comp_aug> NO </comp_aug>                           
+	   <npp_model> PPP_RTK </npp_model>                     
+	   <npp_delaunay> NO </npp_delaunay>                    
+	   <aug_limit comp="0.0" ion="0.0" trop="0.0" />     
+	   <reset_amb_ppprtk> YES </reset_amb_ppprtk>           
+	   <self_cor> NO </self_cor>                            
+	   <obs_level> 3 </obs_level>                           
+	   <grid_aug> YES </grid_aug>
+	   <correct_obs> NO </correct_obs>						
+	   <p_Ion> 1e4 </p_Ion>
+	   <p_Trp> 1e4 </p_Trp>
+	   <ZWD_EST> TRUE </ZWD_EST>
+	   <ZTD_OUT> TRUE </ZTD_OUT>
+ </npp>
+ <ionogrid ID="01">
+		<wgt_mode> DISELEROTI </wgt_mode>
+		<a_Wgt C="0.0020" E="0.0020" G="0.0020" /> 		
+		<b_Wgt C="0.0150" E="0.0150" G="0.0150" />
+		<x_Wgt C="0.0150" E="0.0150" G="0.0150" /> 	
+		
+</ionogrid>
+<receiver>
+<rec X=" 229130.3757 " Y="4980550.3115 " Z="3965917.7162 " id="1012" />        
+<rec X=" 1173762.5309" Y="4771167.3598 " Z="4055171.5110 " id="1022" />        
+<rec X=" 279417.8201 " Y="4588185.0076 " Z="4407977.3670 " id="1140" />        
+<rec X="-114107.1729 " Y="5549619.3828 " Z="3138413.4621 " id="3026" />        
+<rec X="-1803556.2860" Y="4511620.6479 " Z="4119870.7572 " id="2KJ1" />        
+<rec X="-2175297.1160" Y="4330326.1019 " Z="4133584.2678 " id="A010" />        
+<rec X="-2831996.1828" Y="4639167.1961 " Z="3326347.4038 " id="C004" />        
+<rec X="-1624118.1201" Y="5293443.1987 " Z="3155893.4321 " id="D002" />        
+<rec X="-1652647.2510" Y="5317944.9930 " Z="3100208.4141 " id="D007" />        
+<rec X="-1577067.1688" Y="5319985.4217 " Z="3135359.8931 " id="D017" />        
+<rec X="-1523481.8155" Y="5350351.3299 " Z="3110084.5443 " id="D018" />        
+<rec X="-2738682.6389" Y=" 5131437.1047" Z=" 2608733.8832" id="F094" />        
+<rec X="-2350235.7147" Y=" 5392947.6145" Z=" 2456207.1086" id="H035" /> 
+<rec X="-2350235.7147" Y=" 5392947.6145" Z=" 2456207.1086" id="K803" />       
+<rec X="-2285759.3124" Y=" 5415693.1578" Z=" 2466909.0893" id="H038" />        
+<rec X="-2367788.4772" Y=" 5361640.4549" Z=" 2507061.8551" id="H053" />        
+<rec X="-2264026.0042" Y=" 5404743.1677" Z=" 2510331.5254" id="H055" />        
+<rec X="-2286022.6741" Y=" 5376993.8293" Z=" 2549424.5073" id="H068" />        
+<rec X="-2329423.0878" Y=" 5350872.0128" Z=" 2565026.3603" id="H074" />        
+<rec X="-2318154.6031" Y=" 5389607.2148" Z=" 2493531.3497" id="H139" />        
+<rec X="-1644956.9142" Y=" 5351663.5981" Z=" 3046939.3309" id="I092" />        
+<rec X="-2042166.4218" Y=" 5699068.7620" Z=" 2001054.0116" id="J003" />        
+<rec X="-2132034.8642" Y=" 4509248.5803" Z=" 3961882.4439" id="K042" />        
+<rec X="-2061539.3711" Y=" 4485887.5783" Z=" 4026181.9612" id="K057" />        
+<rec X="-2211742.6227" Y=" 4402276.4682" Z=" 4037240.8964" id="K059" />        
+<rec X="-2059482.5532" Y=" 4437621.0227" Z=" 4080017.7183" id="K070" />        
+<rec X="-2044552.7216" Y=" 4330957.9299" Z=" 4200451.9112" id="K101" />        
+<rec X="-2193538.9723" Y=" 4186563.1458" Z=" 4270362.1406" id="K110" />        
+<rec X="-2457297.2649" Y=" 3252868.5944" Z=" 4889023.5363" id="M175" />        
+<rec X="-3055271.7404" Y=" 3299231.1088" Z=" 4508383.6400" id="M192" />        
+<rec X="-2334707.5156" Y=" 5037347.5660" Z=" 3128918.7497" id="N004" />              
+<rec X="-2191056.9349" Y=" 5053129.9205" Z=" 3205815.9742" id="N028" />  
+<rec X="-2350716.9168" Y=" 4955782.5194" Z=" 3244265.6140" id="N047" />
+<rec X="-2222210.0899" Y=" 4963941.9044" Z=" 3320986.9402" id="N068" />              
+<rec X="-2214811.5859" Y=" 5233034.6830" Z=" 2887095.7130" id="O038" />        
+<rec X="-2437355.8683" Y=" 3722275.4686" Z=" 4554919.6797" id="P053" />        
+<rec X="-2584092.9621" Y=" 4097146.8061" Z=" 4135422.8141" id="S028" />        
+<rec X="-1071265.4818" Y=" 5047657.6318" Z=" 3740225.9338" id="T023" />        
+<rec X="-418392.2165 " Y="5013154.2580 " Z="3912731.7547 " id="T044" />        
+<rec X="-2528393.4479" Y=" 4523207.4813" Z=" 3706539.3272" id="U029" />        
+<rec X="-1980661.4373" Y=" 4556162.0522" Z=" 3989739.6964" id="V092" />        
+<rec X="-1700829.8878" Y=" 4977599.5756" Z=" 3595751.3237" id="W038" />        
+<rec X="-1545933.5651" Y=" 5288130.8410" Z=" 3203238.4130" id="X046" />        
+<rec X="-1010438.1426" Y=" 5605275.8275" Z=" 2866286.3017" id="Y065" />  
+<rec X="-1711714.3732" Y="5191535.6262" Z="3275421.4264" id="CQKZ" />
+<rec X="-2502129.6701" Y="4899346.2831" Z="3216694.3620" id="CZDZ" />
+<rec X="-2323705.6753" Y="4846880.7037" Z="3422046.3987" id="FYFN" />
+<rec X="-2410714.4687" Y="5044490.3032" Z="3059369.4221" id="NCAY" />
+<rec X="-2030743.2836" Y="4922480.6282" Z="3499452.6484" id="NYNZ" />
+<rec X="-1714894.2291" Y="4993262.1189" Z="3567496.2348" id="SXXA" />
+<rec X="-2309234.0708" Y="4998958.4508" Z="3207719.1411" id="WHDS" />       
+<rec X="-2277732.7786" Y="5031747.7281" Z="3179072.7700" id="WHSP" />       
+<rec X="-2231642.4714" Y="5043039.9125" Z="3193690.4590" id="WHXK" />
+<rec X="-2299689.3568" Y="4975638.9341" Z="3250284.4151" id="WHXZ" />       
+<rec X="-2252813.6324" Y="4973121.8266" Z="3286531.2933" id="WHYJ" />       
+<rec X="-2267761.1268" Y="5009370.8436" Z="3220970.5657" id="WUDA" />  
+<rec X="-2267761.1268" Y="5009370.8436" Z="3220970.5657" id="SEPT" />     
+<rec X="-2220831.1359" Y="5007544.3055" Z="3256075.5296" id="XGXN" />       
+<rec X="-1889892.0484" Y="5302883.1432" Z="2988668.1426" id="XXFH" />
+<rec X="-2186993.9342" Y="5114395.9350" Z="3110636.6860" id="YYJK" /> 
+<rec X="-2193162.2141" Y="4996265.6368" Z="3291753.9802" id="N062" />       
+<rec X="-2281398.4932" Y="5046329.8584" Z="3153471.3972" id="N010" />      
+<rec X="-2141844.0736" Y="5071953.5961" Z="3209315.6344" id="N032" />
+<rec X="-2340806.3771" Y="4922578.9391" Z="3302011.8626" id="E033" />      
+<rec X="-2392741.6547" Y="5397562.8152" Z="2404757.6297" id="HKCL" />       
+<rec X="-2429526.5994" Y="5377816.3879" Z="2412152.4817" id="HKKS" />      
+<rec X="-2405144.6083" Y="5385195.0026" Z="2420032.2906" id="HKKT" />      
+<rec X="-2414046.6541" Y="5391602.0913" Z="2396878.6330" id="HKLM" />      
+<rec X="-2399063.4488" Y="5389237.5981" Z="2417326.8094" id="HKLT" />      
+<rec X="-2402484.8339" Y="5395262.1995" Z="2400726.7145" id="HKMW" />      
+<rec X="-2392360.9871" Y="5400226.0251" Z="2400094.2161" id="HKNP" />      
+<rec X="-2423817.6125" Y="5386056.8444" Z="2399883.1217" id="HKOH" />      
+<rec X="-2405183.7162" Y="5392541.5768" Z="2403645.4788" id="HKPC" />       
+<rec X="-2414267.6320" Y="5386768.7330" Z="2407459.7810" id="HKSC" />       
+<rec X="-2393383.1343" Y="5393860.9230" Z="2412592.1623" id="HKSL" />	      
+<rec X="-2424425.8099" Y="5377187.9291" Z="2418617.4971" id="HKSS" />       
+<rec X="-2417143.5897" Y="5382345.2328" Z="2415036.6994" id="HKST" />       
+<rec X="-2418093.0926" Y="5374658.0897" Z="2430428.9372" id="HKTK" />       
+<rec X="-2430579.7237" Y="5374285.4301" Z="2418956.0813" id="HKWS" />      
+<rec X="-2411016.5347" Y="5380266.7881" Z="2425133.0475" id="T430" />      
+<rec X="-2267804.6327" Y=" 5009342.3639" Z=" 3220991.8067" id="SGGW" />         
+</receiver>
+
+
+ <parameters>
+<STA ID="1012" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="1022" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="1140" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="3026" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="2KJ1" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="A010" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="C004" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="D002" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="D007" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="D017" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="D018" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="F094" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="K803" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="H035" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="K803" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="H038" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="H053" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="H055" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="H068" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="H074" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="H139" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="I092" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="J003" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="K042" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="K057" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="K059" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="K070" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="K101" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="K110" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="M175" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="M192" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="N004" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="N028" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="N047" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="N068" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="O038" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="P053" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="S028" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="T023" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="T044" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="U029" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="V092" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="W038" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="X046" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="Y065" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="CQKZ" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="CZDZ" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="FYFN" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="NCAY" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="NYNZ" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="SXXA" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="WHDS" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="WHSP" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="WHXK" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="WHXZ" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="WHYJ" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="WUDA" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="SEPT" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="SEPT" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="XGXN" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="XXFH" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="YYJK" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="N062" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="N010" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="N032" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="E033" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="HKCL" sigCLK="9000" sigPOS="100_100_100" sigSION="9000" sigZTD="0.201" />
+<STA ID="HKKS" sigCLK="9000" sigPOS="100_100_100" sigSION="9000" sigZTD="0.201" />
+<STA ID="HKKT" sigCLK="9000" sigPOS="100_100_100" sigSION="9000" sigZTD="0.201" />
+<STA ID="HKLM" sigCLK="9000" sigPOS="100_100_100" sigSION="9000" sigZTD="0.201" />
+<STA ID="HKLT" sigCLK="9000" sigPOS="100_100_100" sigSION="9000" sigZTD="0.201" />
+<STA ID="HKMW" sigCLK="9000" sigPOS="100_100_100" sigSION="9000" sigZTD="0.201" />
+<STA ID="HKNP" sigCLK="9000" sigPOS="100_100_100" sigSION="9000" sigZTD="0.201" />
+<STA ID="HKOH" sigCLK="9000" sigPOS="100_100_100" sigSION="9000" sigZTD="0.201" />
+<STA ID="HKPC" sigCLK="9000" sigPOS="100_100_100" sigSION="9000" sigZTD="0.201" />
+<STA ID="HKQT" sigCLK="9000" sigPOS="100_100_100" sigSION="9000" sigZTD="0.201" />
+<STA ID="HKSC" sigCLK="9000" sigPOS="100_100_100" sigSION="9000" sigZTD="0.201" />
+<STA ID="HKSL" sigCLK="9000" sigPOS="100_100_100" sigSION="9000" sigZTD="0.201" />
+<STA ID="HKSS" sigCLK="9000" sigPOS="100_100_100" sigSION="9000" sigZTD="0.201" />
+<STA ID="HKST" sigCLK="9000" sigPOS="100_100_100" sigSION="9000" sigZTD="0.201" />
+<STA ID="HKTK" sigCLK="9000" sigPOS="100_100_100" sigSION="9000" sigZTD="0.201" />
+<STA ID="HKWS" sigCLK="9000" sigPOS="100_100_100" sigSION="9000" sigZTD="0.201" />
+<STA ID="T430" sigCLK="9000" sigPOS="100_100_100" sigSION="9000" sigZTD="0.201" />
+<STA ID="KYC1" sigCLK="9000" sigPOS="100_100_100" sigSION="9000" sigZTD="0.201" />
+</parameters>
+<editres>
+    <short_elisp> 600 </short_elisp>
+    <jump_elisp> 60 </jump_elisp>
+    <bad_elisp> 60 </bad_elisp>
+ </editres>
+ 
+
+  
+  
+  
+  
+  
+
+ 
+<turboedit lite_mode="true">
+ <ephemeris valid="true" /> 
+ <check_mw mw_limit="1.0" valid="true" />
+ <check_gf gf_limit="0.03" valid="true" />
+ <smooth_win value="25000" />
+ <check_gap gap_limit="10" valid="true" />
+</turboedit>
+
+<ambiguity>            
+    
+   <fix_mode> SEARCH </fix_mode>       
+   <ratio> 2 </ratio>            
+   <part_fix> YES </part_fix>    
+   <set_refsat> YES </set_refsat>   
+   <apply_irc> NO </apply_irc>     
+   <add_leo> NO </add_leo>
+   <part_fix_num> 3 </part_fix_num>
+   <all_baselines> NO </all_baselines>
+   <min_common_time> 0 </min_common_time>                 
+   <baseline_length_limit> 3500 </baseline_length_limit>   
+   <widelane_interval> 30 </widelane_interval>               
+   <widelane_decision alpha="1000" maxdev="0.275" maxsig="0.10" />   
+   <narrowlane_decision alpha="1000" maxdev="0.30" maxsig="0.10" />    
+   <refixsettings last_fix_gap="20" min_fixed_num="3" />
+   <reset_amb_ppprtk> NO </reset_amb_ppprtk>
+   <clear_flag> YES </clear_flag>
+   <full_fix_num> 4 </full_fix_num>
+   <FixFixSep> 0.5 </FixFixSep>
+   <FloatFixSep> 5.0 </FloatFixSep> 
+ </ambiguity>
+ 
+ 
+ <bds sigma_C="0.6" sigma_L="0.01">
+	<sat>
+		 C01 C02 C03 C04 C05 C06 C07 C08 C09 C10 C11 C12 C13 C14 C15
+		 C16 C17 C18 C19 C20 C21 C22 C23 C24 C25 C26 C27 C28 C29 C30 
+		 C32 C33 C34 C35 C36 C37 C38 C39 C40 C41 C42 C43 C44 C45 C46
+		 C47 C48 C49 C50 C51 C52 C53 C54 C55 C59 C60 C31 C56 C57 C58
+	</sat>
+	<band> 2 7 </band>
+	<freq> 1 2 </freq>
+ </bds>
+
+ <gps sigma_C="0.6" sigma_L="0.01">
+	  <sat>
+		 G01 G02 G03 G04 G05 G06 G07 G08 G09 G10 G11 G12 G13 G14 G15 G16
+		 G17 G18 G19 G20 G21 G22 G23 G24 G25 G26 G27 G28 G29 G30 G31
+		 G32
+	  </sat>
+	  <band> 1 2 </band>
+	  <freq> 1 2 </freq>
+ </gps>
+ 
+ <gal sigma_C="0.6" sigma_L="0.01">
+	<sat>
+		 E01 E02 E03 E04 E05 E07 E08 E09 E11 E12 E13 E14 E15 E18 E19
+		 E21 E24 E25 E26 E27 E30 E31 E33 E36
+	</sat>
+	<band> 1 5 </band>
+	<freq> 1 2 </freq>
+ </gal>
+ 
+ 
+ <qzs sigma_C="0.6" sigma_L="0.01">
+  <freq> 1 2 </freq>
+  <band> 1 2 </band>
+ </qzs>
+ 
+ 
+</config>

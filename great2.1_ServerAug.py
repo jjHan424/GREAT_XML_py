@@ -109,7 +109,7 @@ def change_inp_PPP(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,e
         #change obs
         obs_text = obs_text + "\n"
         for cur_site in site_list:
-            if area == "WuHan":
+            if area == "WuHan" or area == "GuangZhou" or area == "BeiJing":
                 obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day)  + cur_site.upper() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
             if area == "HongKong":
                 obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day) + cur_site.lower() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
@@ -222,6 +222,10 @@ def main_iter():
         site_list = ["WHYJ","WHXZ","WHDS","WHSP","N004","N010","N028","N047","N062","N068","XGXN","WUDA","N032","E033"]     
     if area=="HongKong":
         site_list = ["HKTK","T430","HKLT","HKKT","HKSS","HKWS","HKSL","HKST","HKKS","HKCL","HKSC","HKPC","HKNP","HKMW","HKLM","HKOH"]
+    if area=="GuangZhou":
+        site_list = ["H139","H038","H035","H053","H074","H068","H055"]
+    if area=="BeiJing":
+        site_list = ["K042","K057","K059","K101","A010","V092","2KJ1","K070"]
     #机构设置
     sp3_name = "gfz"
     clk_name = "gfz"
