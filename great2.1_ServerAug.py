@@ -109,7 +109,7 @@ def change_inp_PPP(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,e
         #change obs
         obs_text = obs_text + "\n"
         for cur_site in site_list:
-            if area == "WuHan" or area == "GuangZhou" or area == "BeiJing":
+            if area == "WuHan" or area == "GuangZhou" or area == "BeiJing" or area == "EPN_GER":
                 obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day)  + cur_site.upper() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
             if area == "HongKong":
                 obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day) + cur_site.lower() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
@@ -217,15 +217,21 @@ def main_iter():
     clkdir = "/cache/hanjunjie/Data/"+year+"/CLK/"
     ephdir = "/cache/hanjunjie/Data/"+year+"/NAV/"
     # dcbdir = "/home/hanjunjie/data/IONO/"+year+"/DCB/"
-    upddir = "/cache/hanjunjie/Project/A-Paper-1/UPD/UPD_WithoutDCB/"
+    upddir = "/cache/hanjunjie/Project/B-IUGG/UPD/UPD_WithoutDCB/"
     if area=="WuHan":
+        upddir = "/cache/hanjunjie/Project/B-IUGG/UPD_CHN_RAW_ALL_BDS3_30S/UPD_WithoutDCB/"
         site_list = ["WHYJ","WHXZ","WHDS","WHSP","N004","N010","N028","N047","N062","N068","XGXN","WUDA","N032","E033"]     
     if area=="HongKong":
+        upddir = "/cache/hanjunjie/Project/B-IUGG/UPD_CHN_RAW_ALL_BDS2_30S/UPD_WithoutDCB/"
         site_list = ["HKTK","T430","HKLT","HKKT","HKSS","HKWS","HKSL","HKST","HKKS","HKCL","HKSC","HKPC","HKNP","HKMW","HKLM","HKOH"]
     if area=="GuangZhou":
         site_list = ["H139","H038","H035","H053","H074","H068","H055"]
     if area=="BeiJing":
         site_list = ["K042","K057","K059","K101","A010","V092","2KJ1","K070"]
+    if area=="EPN_GER":
+        obsdir = "/cache/hanjunjie/Data/"+year+"/OBS_EPN/"
+        upddir = "/cache/hanjunjie/Project/B-IUGG/UPD_Europe_RAW_ALL_30S/UPD_WithoutDCB_WLRES/"
+        site_list = ["TERS","IJMU","DELF","VLIS","DENT","WSRT","KOS1","BRUX","DOUR","WARE","REDU","EIJS","TIT2","EUSK","DILL","DIEP","BADH","KLOP","FFMJ","KARL","HOBU","PTBB","GOET"]
     #机构设置
     sp3_name = "gfz"
     clk_name = "gfz"

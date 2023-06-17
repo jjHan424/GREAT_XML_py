@@ -17,7 +17,7 @@
 	XXFH YYJK
    </rec>
    <int> 30 </int>
-   <sat_rm> C01 C02 C03 C04 C05 </sat_rm>
+   <sat_rm> C01 C02 C03 C04 C05 C31 C56 C57 C58 C59 C60 C61 </sat_rm>
    <est> LSQ </est> 
  </gen>
 

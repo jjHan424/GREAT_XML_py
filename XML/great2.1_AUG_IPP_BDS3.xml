@@ -8,7 +8,7 @@
   WHYJ WHXZ WHDS WHSP N004 N010 N028 N047 N062 N068 XGXN E033 WUDA N032
   HKTK T430 HKLT HKKT HKSS HKWS HKSL HKST HKKS HKCL HKSC HKPC HKNP HKMW HKLM HKOH
    </rec>
-   <int> 30 </int>
+   <int> 5 </int>
    <sat_rm> C01 C02 C03 C04 C05 C59 C60 C61 </sat_rm>
    <est> LSQ </est> 
  </gen>
@@ -122,6 +122,8 @@
 <npp>
 		<comp_aug> NO </comp_aug>
 		<grid_aug> NO </grid_aug>
+    <ipp_out> YES </ipp_out>
+		<ZTD_OUT> TRUE </ZTD_OUT>
 	</npp>
 <receiver>
 <rec id="1012"      X=" 229130.3757 "  Y="4980550.3115 "  Z="3965917.7162 "/>        

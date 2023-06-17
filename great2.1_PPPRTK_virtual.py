@@ -167,7 +167,7 @@ def change_out_PPPRTK(xml_file,site,mode,doy,cc):
     outputs = root.find("outputs")
     
     server_dir = "client"+"-"+mode + "-{0:03}".format(doy) + "-{0:02}".format(cc)
-    # outputs.find("log").attrib["name"] = server_dir.split(" ")[1]
+    outputs.find("log").attrib["name"] = server_dir
     save_dir = outputs.find("log").attrib["name"]
     if (not os.path.exists(server_dir)):
         os.mkdir(server_dir)
@@ -190,7 +190,7 @@ def change_ionogrid(xml_file,Coef_a,Coef_b,Coef_x,mode,cont):
         root_ionogrid.find("wgt_mode").text = " OFF "
         root_npp.find("grid_aug").text = " NO "
         root_pro.find("sig_init_vion").text = " 100 "
-        root_pro.find("sig_init_ztd").text = " 1.0 "
+        root_pro.find("sig_init_ztd").text = " 1.0E-6 "
         root_flter.attrib["noise_vion"] = "10"
         root_npp.find("p_Ion").text = " 1e{:d} ".format(cont)
         root_npp.find("p_Trp").text = " 1e{:d} ".format(cont)
@@ -199,14 +199,14 @@ def change_ionogrid(xml_file,Coef_a,Coef_b,Coef_x,mode,cont):
         root_ionogrid.find("wgt_mode").text = " Grid "
         root_npp.find("grid_aug").text = " YES "
         root_pro.find("sig_init_vion").text = " 0.001 "
-        root_pro.find("sig_init_ztd").text = " 1.0E-2 "
+        root_pro.find("sig_init_ztd").text = " 1.0E-6 "
         root_flter.attrib["noise_vion"] = "0.001"
     if (mode == "Grid_Chk"):
         root_ionogrid.find("wgt_mode").text = " CHKSITE "
         root_npp.find("correct_obs").text = " NO "
         root_npp.find("grid_aug").text = " YES "
         root_pro.find("sig_init_vion").text = " 100 "
-        root_pro.find("sig_init_ztd").text = " 1.0E-2 "
+        root_pro.find("sig_init_ztd").text = " 1.0E-6 "
     if (mode == "Grid_Ele"):
         root_ionogrid.find("wgt_mode").text = " DISELE "
         root_npp.find("correct_obs").text = " NO "
@@ -217,12 +217,18 @@ def change_ionogrid(xml_file,Coef_a,Coef_b,Coef_x,mode,cont):
         #     root_ionogrid.find("a_Wgt").attrib[sys] = "{:05f}".format(Coef_a[sys])
         #     root_ionogrid.find("b_Wgt").attrib[sys] = "{:05f}".format(Coef_b[sys])
         #     root_ionogrid.find("x_Wgt").attrib[sys] = "{:05f}".format(Coef_x[sys])
+    if (mode == "Grid_CrossChk"):
+        root_ionogrid.find("wgt_mode").text = " ChkCross "
+        root_npp.find("correct_obs").text = " NO "
+        root_npp.find("grid_aug").text = " YES "
+        root_pro.find("sig_init_vion").text = " 100 "
+        root_pro.find("sig_init_ztd").text = " 1.0E-6 "
     if (mode == "Grid_Ele_R"):
         root_ionogrid.find("wgt_mode").text = " DISELEROTI "
         root_npp.find("correct_obs").text = " NO "
         root_npp.find("grid_aug").text = " YES "
         root_pro.find("sig_init_vion").text = " 100 "
-        root_pro.find("sig_init_ztd").text = " 1.0 "
+        root_pro.find("sig_init_ztd").text = " 1.0E-6 "
         # for sys in Coef_a.keys():
         #     root_ionogrid.find("a_Wgt").attrib[sys] = "{:05f}".format(Coef_a[sys])
         #     root_ionogrid.find("b_Wgt").attrib[sys] = "{:05f}".format(Coef_b[sys])
@@ -232,7 +238,7 @@ def change_ionogrid(xml_file,Coef_a,Coef_b,Coef_x,mode,cont):
         root_npp.find("correct_obs").text = " NO "
         root_npp.find("grid_aug").text = " YES "
         root_pro.find("sig_init_vion").text = " 100 "
-        root_pro.find("sig_init_ztd").text = " 1.0E-2 "
+        root_pro.find("sig_init_ztd").text = " 1.0E-6 "
         root_npp.find("p_Ion").text = " 1e{:d} ".format(cont)
         root_npp.find("p_Trp").text = " 1e{:d} ".format(cont)
         
@@ -303,8 +309,11 @@ def change_inp_PPPRTK(xml_file,obsdir,site,rotidir,sp3dir,sp3_name,clkdir,clk_na
         if mode == "Aug":
             for cur_site in site_aug:
                 aug_text = aug_text + "        " + augdir  + cur_site.upper() + "-GEC.aug\n"
-        else:
+        elif mode == "Grid_Chk" or mode == "Grid_Ele_R":
             aug_text = aug_text + "        " + augdir + "server-" + area + "-R-NONE-C-" + site[0] + "/" + "GREAT-GEC-5.grid"
+        else:
+            # aug_text = aug_text + "        " + augdir + "server-" + area + "-R-NONE-C-" + site[0] + "/" + "GREAT-GEC-5.grid"
+            aug_text = aug_text + "        " + augdir + "server-" + area + "-R-" + site[0] + "-C-CROSS" + "/" + "GREAT-GEC-5.grid"
         cur_day = cur_day + 1
 
         
@@ -315,7 +324,7 @@ def change_inp_PPPRTK(xml_file,obsdir,site,rotidir,sp3dir,sp3_name,clkdir,clk_na
     inp_upd.text = upd_text + "  "
     inp_aug.text = aug_text + "    "
     inp_roti.text = roti_text + "    "
-    root.find("outputs").find("log").attrib["name"] = "client-"+site[0] + "-"+mode
+    # root.find("outputs").find("log").attrib["name"] = "client-"+site[0] + "-"+mode
     tree.write(xml_file)
 
 def main_iter():
@@ -341,8 +350,11 @@ def main_iter():
     rotidir = "/cache/hanjunjie/Project/A-Paper-1/ROTI/"
     if mode == "Aug":
         augdir = "/cache/hanjunjie/Project/A-Paper-1/AUG_ELE/"+year+"{0:03}".format(doy)+"/server/"
-    else:
+    elif mode == "Grid_Chk" or mode == "Grid_Ele_R":
         augdir = "/cache/hanjunjie/Project/A-Paper-1/Server_DisChk/"+year+"{0:03}".format(doy)+"/"
+    else:
+        # augdir = "/cache/hanjunjie/Project/A-Paper-1/Server_DisChk/"+year+"{0:03}".format(doy)+"/"
+        augdir = "/cache/hanjunjie/Project/B-IUGG/Grid/"+year+"{0:03}".format(doy)+"/"
     #机构设置
     sp3_name = "gfz"
     clk_name = "gfz"

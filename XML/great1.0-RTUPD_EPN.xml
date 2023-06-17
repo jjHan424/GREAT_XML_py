@@ -17,7 +17,7 @@
  YYJK 
    </rec>
    <int> 30 </int>
-   <sat_rm> C01 C02 C03 C04 C05 </sat_rm>
+   <sat_rm> C01 C02 C03 C04 C05 C31 C56 C57 C58 C59 C60 C61 </sat_rm>
    <est> LSQ </est> 
  </gen>
 
@@ -53,7 +53,7 @@
    <upd> </upd>
  </outputs>
 
-<process CompAug="YES" bds_code_bias_corr="true" crd_constr="EST" frequency="2" grad_mf="TILTING" gradient="false" ion_model="SION" isleo="false" lsq_mode="EPO" minimum_elev="7" npp_model="UPD" obs_combination="IONO_FREE" obs_weight="PARTELE" phase="true" realtime="false" slip_model="turboedit" tropo="true" tropo_mf="gmf" tropo_model="saastamoinen" turboedit_soft="./turboedit" ztd_model="PWC:120">
+<process CompAug="YES" bds_code_bias_corr="true" crd_constr="EST" frequency="2" grad_mf="TILTING" gradient="false" ion_model="SION" isleo="false" lsq_mode="EPO" minimum_elev="7" npp_model="UPD" obs_combination="RAW_ALL" obs_weight="PARTELE" phase="true" realtime="false" slip_model="turboedit" tropo="true" tropo_mf="gmf" tropo_model="saastamoinen" turboedit_soft="./turboedit" ztd_model="PWC:120">
 <ifb_model> EST_REC_IFB </ifb_model>
 </process>
 

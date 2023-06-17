@@ -98,12 +98,12 @@
 	<CompAug> NO </CompAug>	
 	<ifb_model> EST_REC_IFB </ifb_model>
 </process>
-<filter
-noise_vion="10" reset_par = "3600"
-/>
 <!-- <filter
-noise_vion="10"
+noise_vion="10" reset_par = "3600"
 /> -->
+<filter
+noise_vion="10"
+/>
 <npp>
 	   <client> YES </client>                               <!-- 是否客户端 -->
 	   <comp_aug> NO </comp_aug>                           <!-- 是否综合改正数 -->
@@ -117,6 +117,7 @@ noise_vion="10"
 	   <correct_obs> NO </correct_obs>						<!-- 是否直接改正观测值 -->
 	   <p_Ion> 1e4 </p_Ion>
 	   <p_Trp> 1e4 </p_Trp>
+	   <ZWD_EST> FALSE </ZWD_EST>
  </npp>
  <ionogrid ID="01">
 		<wgt_mode> CHKSITE </wgt_mode>

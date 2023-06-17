@@ -99,7 +99,7 @@
         <bias_res> 1000000000 </bias_res>
 		<bias_baseline> 150 </bias_baseline><!-- Bias观测方程最近测站选取阈值 -->
     <!-- Weight for Client Set -->
-		<wgt_mode> DisChk </wgt_mode>
+		<wgt_mode> ChkCross </wgt_mode>
 		<rec_chk> WUDA </rec_chk>
 		<roti_wgt> false </roti_wgt>
 		<maxdis_wgt> 100 </maxdis_wgt>

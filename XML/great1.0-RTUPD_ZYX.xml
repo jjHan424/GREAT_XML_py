@@ -1,0 +1,148 @@
+<config>
+ <gen>
+   <beg> 2021-10-29 00:00:00 </beg>
+   <end> 2021-10-29 01:00:00 </end>
+   <sys> GPS GAL BDS </sys>
+   <rec>
+ 1012  1022  1140  3026  2KJ1  A010 
+ C004  D002  D007  D017  D018  E033 
+ F094  H035  H038  H053  H055  H068 
+ H074  H139  I092  J003  K042  K057 
+ K059  K070  K101  K110  M175  M192 
+ N004  N062  N010  N032  N028  N047 
+ N068  O038  P053  S028  T023  T044 
+ U029  V092  W038  X046  Y065  CQKZ 
+ CZDZ  FYFN  NCAY  NYNZ  SXXA  WHDS 
+ WHSP  WHXK  WHXZ  WHYJ  XGXN  XXFH 
+ YYJK 
+   </rec>
+   <int> 30 </int>
+   <sat_rm> C01 C02 C03 C04 C05 </sat_rm>
+   <est> LSQ </est> 
+ </gen>
+
+ <inputs>
+   <rinexo>
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\10123020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\10223020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\11403020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\30263020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\2KJ13020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\A0103020.21o
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\C0043020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\D0023020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\D0073020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\D0173020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\D0183020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\E0333020.21o
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\F0943020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\H0353020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\H0383020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\H0533020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\H0553020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\H0683020.21o
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\H0743020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\H1393020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\I0923020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\J0033020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\K0423020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\K0573020.21o
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\K0593020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\K0703020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\K1013020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\K1103020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\M1753020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\M1923020.21o
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\N0043020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\N0623020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\N0103020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\N0323020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\N0283020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\N0473020.21o
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\N0683020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\O0383020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\P0533020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\S0283020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\T0233020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\T0443020.21o
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\U0293020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\V0923020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\W0383020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\X0463020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\Y0653020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\CQKZ3020.21o
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\CZDZ3020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\FYFN3020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\NCAY3020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\NYNZ3020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\SXXA3020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\WHDS3020.21o
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\WHSP3020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\WHXK3020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\WHXZ3020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\WHYJ3020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\XGXN3020.21o  E:\1Master_2\2-UPD_Test\Pro_2021302\data\XXFH3020.21o
+  E:\1Master_2\2-UPD_Test\Pro_2021302\data\YYJK3020.21o
+   </rinexo>
+   <rinexn>  E:/1Master_2/2-UPD_Test/Pro_2021302/data/brdm3020.21n  </rinexn>
+   <rinexc>  E:/1Master_2/2-UPD_Test/Pro_2021302/data/gfz21815.clk  </rinexc>
+   <sp3>  E:/1Master_2/2-UPD_Test/Pro_2021302/data/gfz21815.sp3  </sp3>
+   
+   <atx> /cache/hanjunjie/Project/Temp_ZYX/model/igs_absolute_14_BDS.atx </atx>
+   <blq>/cache/hanjunjie/Project/Temp_ZYX/model/oceanload </blq>
+   <DE> /cache/hanjunjie/Project/Temp_ZYX/model/jpleph_de405_great </DE>
+   <poleut1> /cache/hanjunjie/Project/Temp_ZYX/model/poleut1 </poleut1>
+   <leapsecond> /cache/hanjunjie/Project/Temp_ZYX/model/leap_seconds </leapsecond>
+ </inputs>
+
+ <outputs append="false" verb="0">
+   <log> upd/LOGRT.log </log>
+   <flt> upd/$(rec)-GEC-F.flt  </flt>
+   <enu> upd/$(rec)-GEC-F.enu  </enu>
+   <upd> </upd>
+ </outputs>
+
+<process CompAug="YES" bds_code_bias_corr="true" crd_constr="EST" frequency="2" grad_mf="TILTING" gradient="false" ion_model="SION" isleo="false" lsq_mode="EPO" minimum_elev="7" npp_model="UPD" obs_combination="IONO_FREE" obs_weight="PARTELE" phase="true" realtime="false" slip_model="turboedit" tropo="true" tropo_mf="gmf" tropo_model="saastamoinen" turboedit_soft="./turboedit" ztd_model="PWC:120">
+<ifb_model> EST_REC_IFB </ifb_model>
+</process>
+
+<receiver>
+<rec X="-1155895.0033" Y="5591831.2134" Z="2834558.5093" id = "0320" />
+<rec X="-1155392.6546" Y="5592247.6233" Z="2834606.3874" id = "0340" />
+<rec X="-1153873.2678" Y="5591462.2877" Z="2836136.0141" id = "0455" />
+<rec X="-1156105.3216" Y="5591915.9724" Z="2834537.8607" id = "5993" />
+<rec X="-1154923.9983" Y="5592222.6430" Z="2834750.8204" id = "0630" />
+<rec X="-1153702.4534" Y="5591469.8693" Z="2836388.3061" id = "0710" />
+<rec X="-1153652.7202" Y="5591491.7925" Z="2836430.7436" id = "0715" />
+<rec X="-1155895.0033" Y="5591831.2134" Z="2834558.5093" id = "0800" />
+<rec X="-1245845.9345" Y="5572216.1410" Z="2837260.4259" id = "HUID" />
+<rec X="-1195171.4281" Y="5565226.3752" Z="2870376.5003" id = "MIYI" />
+<rec X="-1172569.0831" Y="5607246.6495" Z="2799223.5130" id = "PIDI" />
+<rec X="-1231652.8399" Y="5533917.2074" Z="2915663.0156" id = "PUGE" />
+<rec X="-1158854.9297" Y="5590745.3153" Z="2836318.6006" id = "PZHA" />
+<rec X="-1178621.5855" Y="5586378.0695" Z="2836590.5280" id = "YANB" />
+<rec X="-1131126.9981" Y="5553173.5695" Z="2922000.4635" id = "YANY" />
+<rec X="-1131414.7293" Y="5580510.4635" Z="2867015.4618" id = "YUME" />   
+</receiver>
+
+
+ <parameters>
+<STA ID="0320" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="0340" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="0455" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="5993" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="0630" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="0710" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="0715" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="0800" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="HUID" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="MIYI" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="PIDI" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="PUGE" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="PZHA" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="YANB" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="YANY" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="YUME" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+</parameters>
+
+<turboedit lite_mode="true">
+ <ephemeris valid="true" /> 
+ <check_mw mw_limit="2.0" valid="true" />
+ <check_gf gf_limit="0.05" valid="true" />
+ <smooth_win value="25" />
+ <check_gap gap_limit="60" valid="true" />
+</turboedit>
+
+<ambiguity>
+   <fix_mode> NO </fix_mode>       
+   <part_fix>  YES  </part_fix>       
+   <apply_irc> NO </apply_irc> 
+   <part_fix_num> 3 </part_fix_num>
+   <ratio>  2.0  </ratio>            
+   <set_refsat> NO </set_refsat>
+   <add_leo>  NO   </add_leo>
+   <all_baselines>  NO  </all_baselines>
+   <min_common_time> 0 </min_common_time>                 
+   <baseline_length_limit>  3500  </baseline_length_limit>   
+   <widelane_interval> 30 </widelane_interval>               
+   <widelane_decision alpha="1000" maxdev="0.4" maxsig="0.10" />   
+   <narrowlane_decision alpha="1000" maxdev="0.3" maxsig="0.10" />   
+ </ambiguity>
+
+
+ <bds sigma_C="0.6" sigma_L="0.01">
+ <freq> 1 2</freq>
+ <band> 2 7</band>
+ </bds>
+
+ <gps sigma_C="0.6" sigma_L="0.01">
+  <freq> 1 2</freq>
+  <band> 1 2 </band>
+ </gps>
+ 
+ <gal sigma_C="0.6" sigma_L="0.01">
+  <freq> 1 2 </freq>
+  <band> 1 5 </band>
+ </gal>
+ 
+ <glo sigma_C="0.6" sigma_L="0.01">
+  <freq> 1 2 </freq>
+  <band> 1 2 </band>
+ </glo>
+ 
+ <qzs sigma_C="0.6" sigma_L="0.01">
+  <freq> 1 2 </freq>
+  <band> 1 2 </band>
+ </qzs>
+</config>

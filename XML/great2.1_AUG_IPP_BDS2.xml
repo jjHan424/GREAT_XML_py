@@ -8,7 +8,7 @@
   WHYJ WHXZ WHDS WHSP N004 N010 N028 N047 N062 N068 XGXN E033 WUDA N032
   HKTK T430 HKLT HKKT HKSS HKWS HKSL HKST HKKS HKCL HKSC HKPC HKNP HKMW HKLM HKOH
    </rec>
-   <int> 30 </int>
+   <int> 5 </int>
    <sat_rm> C01 C02 C03 C04 C05 C59 C60 C61 </sat_rm>
    <est> LSQ </est> 
  </gen>
@@ -63,10 +63,10 @@
    
 
    <!-- <aug>  caster://admin01:sgg12345@59.172.178.24:10068/AUG23 </aug> -->
-    <atx> /cache/hanjunjie/Project/B-IUGG/model/igs_absolute_14.atx </atx>
+   <atx> /cache/hanjunjie/Project/A-Paper-1/model/igs_absolute_14_BDS.atx </atx>
    <blq>/cache/hanjunjie/Project/A-Paper-1/model/oceanload </blq>
    <de> /cache/hanjunjie/Project/A-Paper-1/model/jpleph_de405_great </de>
-   <eop> /cache/hanjunjie/Project/B-IUGG/model/poleut1 </eop>
+   <eop> /cache/hanjunjie/Project/A-Paper-1/model/poleut_great </eop>
    <leapsecond> /cache/hanjunjie/Project/A-Paper-1/model/leap_seconds </leapsecond>
 
    <upd> 
@@ -122,6 +122,8 @@
 <npp>
 		<comp_aug> NO </comp_aug>
 		<grid_aug> NO </grid_aug>
+    <ipp_out> YES </ipp_out>
+		<ZTD_OUT> TRUE </ZTD_OUT>
 	</npp>
 <receiver>
 <rec id="1012"      X=" 229130.3757 "  Y="4980550.3115 "  Z="3965917.7162 "/>        
@@ -372,7 +374,7 @@
 
  <bds sigma_C="0.6" sigma_L="0.01" >
  <freq> 1 2</freq>
- <band> 2 6</band>
+ <band> 2 7</band>
  </bds>
 
  <gps sigma_C="0.6" sigma_L="0.01" >
