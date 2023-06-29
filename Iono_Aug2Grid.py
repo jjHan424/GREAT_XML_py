@@ -47,7 +47,13 @@ def change_gen(xml_file,year,doy,hour,s_length,site,sys):
     gen_rec = gen.find("rec")
     gen_rec.text = ""
     for i in range(len(site)):
+        if site[i] == "Cycle":
+            continue
         gen_rec.text = gen_rec.text + " " + site[i] + " "
+    if ("C3" in sys):
+        root.find("bds").find("band").text = " 2 6 "
+    if ("C2" in sys):
+        root.find("bds").find("band").text = " 2 7 "
     tree.write(xml_file)
 
 def change_gen_time(xml_file,year,doy,hour,s_length):
@@ -145,8 +151,10 @@ def change_inp_Aug2Grid(xml_file,augdir,site):
     aug_text= ""
     
     for cur_site in site:
+        if cur_site == "Cycle":
+            continue
         aug_text = aug_text + "\n"
-        aug_text = aug_text + "      " + augdir + cur_site + "-GEC.aug"
+        aug_text = aug_text + "      " + augdir + "/" + cur_site + "-GEC.aug"
     inp_aug.text = aug_text + "\n   "
     tree.write(xml_file)
 
@@ -180,13 +188,16 @@ def change_out_PPP(xml_file,year,doy,hour,s_length,type):
     out_temp.text = "  " + "IPP_PPP/$(rec)$(doy)_" + mode + ".$(yy)IPP"
 
     tree.write(xml_file)
-def change_out_Aug2Grid(xml_file,area,rec_rm,rec_chk):
+def change_out_Aug2Grid(xml_file,area,rec_rm,rec_chk,sampling):
     tree = et.parse(xml_file)
     root = tree.getroot()
     outputs = root.find("outputs")
-    
+    gen = root.find("gen")
+    gen.find("int").text = "  " + sampling + "  "
     server_dir = " server"+"-"+area+"-R"
     for cur_site in rec_rm:
+        if cur_site == "Cycle":
+            continue
         server_dir = server_dir + "-" + cur_site
     server_dir = server_dir +"-C"
     for cur_site in rec_chk:
@@ -199,7 +210,7 @@ def change_out_Aug2Grid(xml_file,area,rec_rm,rec_chk):
     outputs.find("ppp").text = server_dir + "$(rec)-GEC-AR.ppp "
     outputs.find("flt").text = server_dir + "$(rec)-GEC-AR.flt "
     outputs.find("enu").text = server_dir + "$(rec)-GEC-AR.enu "
-    outputs.find("aug").text = server_dir + "$(rec)-GEC-5.aug  "
+    outputs.find("aug").text = server_dir + "$(rec)-GEC-" + sampling + ".aug  "
     tree.write(xml_file)
 
 def change_ionogrid(xml_file,area,rec_rm_list,rec_chk_list):
@@ -255,6 +266,8 @@ def change_ionogrid(xml_file,area,rec_rm_list,rec_chk_list):
     for cur_site in rec_rm_list:
         if (cur_site == "NONE"):
             continue
+        if cur_site == "Cycle":
+            continue
         root.find("rec_rm").text = root.find("rec_rm").text + cur_site + " "
     # root.find("rec_rm").text = root.find("rec_rm").text + " "
     root.find("rec_chk").text = " "
@@ -265,6 +278,31 @@ def change_ionogrid(xml_file,area,rec_rm_list,rec_chk_list):
     # root.find("rec_chk").text = root.find("rec_chk").text + " "
     tree.write(xml_file)
 
+def change_ionogrid(xml_file,area,ref_lon,ref_lat,space_lon,space_lat,count_lat,count_lon,rec_rm_list,rec_chk_list):
+    tree = et.parse(xml_file)
+    root = tree.getroot().find("ionogrid")
+    root.find("Mask").text = " "  + area +" "
+    root.find("RefLon").text = "     "  + "{:3.2f}".format(ref_lon) +"     "
+    root.find("RefLat").text = "     "  + "{:3.2f}".format(ref_lat) +"      "
+    root.find("SpaceLon").text = "   "  + "{:.2f}".format(space_lon) +"       "
+    root.find("SpaceLat").text = "   "  + "{:.2f}".format(space_lat) +"       "
+    root.find("CountLon").text = "   "  + "{:2d}".format(count_lat) +"         "
+    root.find("CountLat").text = "   "  + "{:2d}".format(count_lon) +"         "
+    root.find("bias_baseline").text = "  "  + "{:.2f}".format(1500000000) +"     "
+    root.find("maxdis_wgt").text = "     "  + "{:.2f}".format(100) +"     "
+    root.find("rec_rm").text = " "
+    for cur_site in rec_rm_list:
+        if (cur_site == "NONE"):
+            continue
+        root.find("rec_rm").text = root.find("rec_rm").text + cur_site + " "
+    # root.find("rec_rm").text = root.find("rec_rm").text + " "
+    root.find("rec_chk").text = " "
+    for cur_site in rec_chk_list:
+        if (cur_site == "NONE"):
+            continue
+        root.find("rec_chk").text = root.find("rec_chk").text + cur_site + " "
+    # root.find("rec_chk").text = root.find("rec_chk").text + " "
+    tree.write(xml_file)
 
 def main_iter():
     #参数的传递
@@ -314,6 +352,7 @@ def main_iter():
     change_gen(xmlfile,int(year),doy,hour,s_length,site,sys_GNSS)
     change_inp_Aug2Grid(xmlfile,augdir,site)
     change_out_Aug2Grid(xmlfile,area,rec_rm_list,rec_chk_list)
-    change_ionogrid(xmlfile,area,rec_rm_list,rec_chk_list)
+    # change_ionogrid_Old(xmlfile,area,rec_rm_list,rec_chk_list)
+    # change_ionogrid(xmlfile,area,ref_lon,ref_lat,space_lon,space_lat,count_lat,count_lon,rec_rm_list,rec_chk_list)
 if __name__ == "__main__":
         main_iter()

@@ -230,8 +230,10 @@ def main_iter():
         site_list = ["K042","K057","K059","K101","A010","V092","2KJ1","K070"]
     if area=="EPN_GER":
         obsdir = "/cache/hanjunjie/Data/"+year+"/OBS_EPN/"
-        upddir = "/cache/hanjunjie/Project/B-IUGG/UPD_Europe_RAW_ALL_30S/UPD_WithoutDCB_WLRES/"
-        site_list = ["TERS","IJMU","DELF","VLIS","DENT","WSRT","KOS1","BRUX","DOUR","WARE","REDU","EIJS","TIT2","EUSK","DILL","DIEP","BADH","KLOP","FFMJ","KARL","HOBU","PTBB","GOET"]
+        # upddir = "/cache/hanjunjie/Project/B-IUGG/UPD_Europe_RAW_ALL_30S/UPD_WithoutDCB_WLRES/"
+        upddir = "/cache/hanjunjie/Project/B-IUGG/UPD_EPN_GER_RAW_ALL_30S/UPD_WithoutDCB/"
+        # site_list = ["TERS","IJMU","DELF","VLIS","DENT","WSRT","KOS1","BRUX","DOUR","WARE","REDU","EIJS","TIT2","EUSK","DILL","DIEP","BADH","KLOP","FFMJ","KARL","HOBU","PTBB","GOET"]
+        site_list = ["TERS","IJMU","DENT","WSRT","KOS1","BRUX","DOUR","WARE","REDU","EIJS","TIT2","EUSK","DILL","DIEP","BADH","KLOP","FFMJ","KARL","HOBU","PTBB","GOET"]
     #机构设置
     sp3_name = "gfz"
     clk_name = "gfz"

@@ -6,7 +6,6 @@ LastEditors: Please set LastEditors
 Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 FilePath: /GREAT_xml_py/Iono_great-ipppre.py
 '''
-from multiprocessing.heap import Arena
 import os
 import shutil
 import ftplib
@@ -98,7 +97,10 @@ def change_inp_PPP(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,e
         hour = hour - 24
     site_list = site
     inp_obs = inputs.find("rinexo")
+    inp_sp3 = inputs.find("sp3")
+    inp_clk = inputs.find("rinexc")
     inp_eph = inputs.find("rinexn")
+    inp_upd = inputs.find("upd")
     cur_day = 0
     obs_text,sp3_text,clk_text,dcb_text,eph_text,upd_text = "","","","","",""
     yyyy = "{0:04}".format(year)
@@ -107,17 +109,30 @@ def change_inp_PPP(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,e
         #change obs
         obs_text = obs_text + "\n"
         for cur_site in site_list:
-            # if cur_site[0] == "W" or cur_site[0] == "N" or cur_site[0] == "X":
-            obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day)  + cur_site.upper() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
-            # if cur_site[0] == "H" or cur_site[0] == "T":
-            #     obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day) + cur_site.lower() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
+            if area == "WuHan" or area == "GuangZhou" or area == "BeiJing" or area == "EPN_GER":
+                obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day)  + cur_site.upper() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
+            if area == "HongKong":
+                obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day) + cur_site.lower() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
         #change nav
         eph_text = eph_text + "  " + ephdir + eph_name +  "{0:03}".format(day) + "0." + yyyy[2:] + "n"
+        #change upd
+        upd_text = upd_text + "\n  " + upddir + "upd_nl_" + yyyy + "{0:03}".format(day) + "_GEC\n"
+        upd_text = upd_text + "  " + upddir + "upd_wl_" + yyyy + "{0:03}".format(day) + "_GEC\n"
+        #change sp3
+        y_temp,mon,day = doy2ymd(int(year),int(day))
+        week = ymd2gpsweekday(int(year),mon,day)
+        sp3_text = sp3_text + "  " + sp3dir + sp3_name + str(week) + ".sp3"
+        #change clk
+        clk_text = clk_text + "  " + clkdir + clk_name + str(week) + ".clk"
         
         cur_day = cur_day + 1
     
     inp_obs.text = obs_text + "   "
     inp_eph.text = eph_text + "  "
+    inp_sp3.text = sp3_text + "  "
+    inp_clk.text = clk_text + "  "
+    inp_upd.text = upd_text + "  "
+    root.find("outputs").find("log").attrib["name"] = "AUG-" + area
     tree.write(xml_file)
 
 def change_inp_PL(xml_file,obsdir,site,ephdir,eph_name,year,doy,hour,s_length):
@@ -194,18 +209,31 @@ def main_iter():
     sec = 0
     s_length = int(argv[4])
     sys_GNSS = argv[5]
-    xmlfile = argv[6]
+    area = argv[6]
+    xmlfile = argv[7]
     #路径的设置
-    # obsdir = "/cache/hanjunjie/Data/"+year+"/OBS/"
-    obsdir = "/cache/hanjunjie/Data/"+year+"/OBS_EPN/"
+    obsdir = "/cache/hanjunjie/Data/"+year+"/OBS/"
     sp3dir = "/cache/hanjunjie/Data/"+year+"/SP3/"
     clkdir = "/cache/hanjunjie/Data/"+year+"/CLK/"
     ephdir = "/cache/hanjunjie/Data/"+year+"/NAV/"
     # dcbdir = "/home/hanjunjie/data/IONO/"+year+"/DCB/"
-    upddir = "/cache/hanjunjie/Project/A-Paper-1/UPD/UPD_WithoutDCB/"
-    # site_list = ["WHYJ","WHXZ","WHDS","WHSP","N028","N047","N068","XGXN","WUDA","HKTK","T430","HKLT","HKKT","HKSS","HKWS","HKSL","HKST","HKKS","HKCL","HKSC","HKPC","HKNP","HKMW","HKLM","HKOH"]
-    # site_list = ["H139","H038","H035","H053","H074","H068","H055","K042","K057","K059","K101","A010","V092","K070"]
-    site_list = ["TERS","IJMU","DELF","VLIS","DENT","WSRT","KOS1","BRUX","DOUR","WARE","REDU","EIJS","TIT2","EUSK","DILL","DIEP","BADH","KLOP","FFMJ","KARL","HOBU","PTBB","GOET"]
+    upddir = "/cache/hanjunjie/Project/B-IUGG/UPD/UPD_WithoutDCB/"
+    if area=="WuHan":
+        upddir = "/cache/hanjunjie/Project/B-IUGG/UPD_CHN_RAW_ALL_BDS3_30S/UPD_WithoutDCB/"
+        site_list = ["WHYJ","WHXZ","WHDS","WHSP","N004","N010","N028","N047","N062","N068","XGXN","WUDA","N032","E033"]     
+    if area=="HongKong":
+        upddir = "/cache/hanjunjie/Project/B-IUGG/UPD_CHN_RAW_ALL_BDS2_30S/UPD_WithoutDCB/"
+        site_list = ["HKTK","T430","HKLT","HKKT","HKSS","HKWS","HKSL","HKST","HKKS","HKCL","HKSC","HKPC","HKNP","HKMW","HKLM","HKOH"]
+    if area=="GuangZhou":
+        site_list = ["H139","H038","H035","H053","H074","H068","H055"]
+    if area=="BeiJing":
+        site_list = ["K042","K057","K059","K101","A010","V092","2KJ1","K070"]
+    if area=="EPN_GER":
+        obsdir = "/cache/hanjunjie/Data/"+year+"/OBS_EPN/"
+        upddir = "/cache/hanjunjie/Project/B-IUGG/UPD_Europe_RAW_ALL_30S/UPD_WithoutDCB/"
+        # upddir = "/cache/hanjunjie/Project/B-IUGG/UPD_EPN_GER_RAW_ALL_30S/UPD_WithoutDCB/"
+        # site_list = ["TERS","IJMU","DELF","VLIS","DENT","WSRT","KOS1","BRUX","DOUR","WARE","REDU","EIJS","TIT2","EUSK","DILL","DIEP","BADH","KLOP","FFMJ","KARL","HOBU","PTBB","GOET"]
+        site_list = ["TERS","IJMU","DENT","WSRT","KOS1","BRUX","DOUR","WARE","REDU","EIJS","TIT2","EUSK","DILL","DIEP","BADH","KLOP","FFMJ","KARL","HOBU","PTBB","GOET"]
     #机构设置
     sp3_name = "gfz"
     clk_name = "gfz"
@@ -213,7 +241,7 @@ def main_iter():
     # dcb_name = "CAS"
 
     change_gen(xmlfile,int(year),doy,hour,s_length,site_list,sys_GNSS)
-    area = "HJJ"
+
     change_inp_PPP(xmlfile,obsdir,site_list,sp3dir,sp3_name,clkdir,clk_name,ephdir,eph_name,int(year),doy,hour,s_length,upddir,area)
     # change_out_PPP(xmlfile,int(year),doy,hour,s_length,type)
 if __name__ == "__main__":

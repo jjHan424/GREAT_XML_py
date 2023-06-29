@@ -122,7 +122,30 @@
 <rec X="4031947.4569" Y="370150.8058" Z="4911905.7665" id = "WARE" />
 <rec X="4075578.4000" Y="931852.7500" Z="4801569.9800" id = "WTZZ" />
 <rec X="4425737.1637" Y="1204734.5084" Z="4417173.4702" id = "ZADA" />
-<rec X="3904633.3059" Y="1360191.8777" Z="4840630.7774" id = "ZYWI" />   
+<rec X="3904633.3059" Y="1360191.8777" Z="4840630.7774" id = "ZYWI" />
+<rec X="4042499.4581" Y="612072.2204" Z="4879250.8400" id = "BADH" />
+<rec X="4027881.8468" Y="306998.2610" Z="4919498.6524" id = "BRUX" />
+<rec X="3924687.7039" Y="301132.7618" Z="5001910.7712" id = "DELF" />
+<rec X="4020711.7200" Y="238850.8732" Z="4928949.4207" id = "DENT" />
+<rec X="3842152.8000" Y="563402.1000" Z="5042888.6000" id = "DIEP" />
+<rec X="4132892.2000" Y="485479.5000" Z="4817740.6000" id = "DILL" />
+<rec X="4086778.4058" Y="328451.7478" Z="4869782.4126" id = "DOUR" />
+<rec X="4023086.5352" Y="400394.8606" Z="4916655.3317" id = "EIJS" />
+<rec X="4022106.5000" Y="477010.9000" Z="4910840.5000" id = "EUSK" />
+<rec X="4053455.7000" Y="617729.9000" Z="4869395.9000" id = "FFMJ" />
+<rec X="3918911.8000" Y="687523.9000" Z="4968545.6000" id = "GOET" />
+<rec X="3778220.0990" Y="698635.2250" Z="5074054.0270" id = "HOBU" />
+<rec X="3882053.2677" Y="309346.2085" Z="5034330.2213" id = "IJMU" />
+<rec X="4146524.2000" Y="613138.3000" Z="4791517.3000" id = "KARL" />
+<rec X="4041875.7330" Y="620655.0630" Z="4878636.6120" id = "KLOP" />
+<rec X="3899613.9607" Y="397361.6230" Z="5014738.6348" id = "KOS1" />
+<rec X="3844059.7545" Y="709661.5334" Z="5023129.6933" id = "PTBB" />
+<rec X="4091423.7190" Y="368380.6530" Z="4863179.9940" id = "REDU" />
+<rec X="3798580.8808" Y="346993.8533" Z="5094780.8151" id = "TERS" />
+<rec X="3993787.1000" Y="450204.2000" Z="4936131.8000" id = "TIT2" />
+<rec X="3975805.2237" Y="249950.0832" Z="4964446.0850" id = "VLIS" />
+<rec X="4031947.4569" Y="370150.8058" Z="4911905.7665" id = "WARE" />
+<rec X="3828736.1381" Y="443304.7367" Z="5064884.5110" id = "WSRT" />     
 </receiver>
 
 
@@ -192,6 +215,29 @@
 <STA ID="WTZZ" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
 <STA ID="ZADA" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
 <STA ID="ZYWI" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="BADH" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="BRUX" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="DELF" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="DENT" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="DIEP" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="DILL" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="DOUR" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="EIJS" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="EUSK" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="FFMJ" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="GOET" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="HOBU" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="IJMU" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="KARL" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="KLOP" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="KOS1" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="PTBB" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="REDU" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="TERS" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="TIT2" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="VLIS" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="WARE" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
+<STA ID="WSRT" sigCLK="9000" sigPOS="0.1_0.1_0.1" sigSION="9000" sigTropPd="0.015" sigZTD="0.201" />
 </parameters>
 
 <turboedit lite_mode="true">
