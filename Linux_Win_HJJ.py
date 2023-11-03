@@ -28,3 +28,9 @@ def run_app(app_dir,app_name,xml_path,log_dir="./",log_name="./py.log"):
     except OSError:
         logging.error("run failed for throw except.")
         sys.exit()
+
+def mkdir(dir):
+    if os.path.exists(dir):
+        logging.warning("This workdir {} is exist".format(dir))
+    else:
+        os.mkdir(dir)

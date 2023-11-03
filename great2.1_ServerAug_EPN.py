@@ -109,10 +109,12 @@ def change_inp_PPP(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,e
         #change obs
         obs_text = obs_text + "\n"
         for cur_site in site_list:
-            if area == "WuHan" or area == "GuangZhou" or area == "BeiJing" or area == "EPN_GER":
-                obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day)  + cur_site.upper() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
+            # if area == "WuHan" or area == "GuangZhou" or area == "BeiJing" or area == "EPN_GER":
+            #     obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day)  + cur_site.upper() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
             if area == "HongKong":
                 obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day) + cur_site.lower() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
+            else:
+                obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day)  + cur_site.upper() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
         #change nav
         eph_text = eph_text + "  " + ephdir + eph_name +  "{0:03}".format(day) + "0." + yyyy[2:] + "n"
         #change upd
@@ -234,6 +236,16 @@ def main_iter():
         # upddir = "/cache/hanjunjie/Project/B-IUGG/UPD_EPN_GER_RAW_ALL_30S/UPD_WithoutDCB/"
         # site_list = ["TERS","IJMU","DELF","VLIS","DENT","WSRT","KOS1","BRUX","DOUR","WARE","REDU","EIJS","TIT2","EUSK","DILL","DIEP","BADH","KLOP","FFMJ","KARL","HOBU","PTBB","GOET"]
         site_list = ["TERS","IJMU","DENT","WSRT","KOS1","BRUX","DOUR","WARE","REDU","EIJS","TIT2","EUSK","DILL","DIEP","BADH","KLOP","FFMJ","KARL","HOBU","PTBB","GOET"]
+    if area=="EPN_ZTD1":
+        obsdir = "/cache/hanjunjie/Data/"+year+"/OBS_EPN/"
+        upddir = "/cache/hanjunjie/Project/B-IUGG/UPD_Europe_RAW_ALL_30S/UPD_WithoutDCB/"
+        site_list_str = "MSEL MEDI IGMI IGM2 PADO VEN1 MOPS CIMO BOLG GARI VIRG PRAT UNPG POPI ZIM2 ZIMM AUTN BRMF BSCN BRMG PFA3 LIGN COMO MOPI MOP2 KUNZ TRF2 SPRN BUTE PENC DVCN BBYS TUBO"
+        site_list = site_list_str.split()
+    if area=="EPN_ZTD2":
+        obsdir = "/cache/hanjunjie/Data/"+year+"/OBS_EPN/"
+        upddir = "/cache/hanjunjie/Project/B-IUGG/UPD_Europe_RAW_ALL_30S/UPD_WithoutDCB/"
+        site_list_str = "BOGO BOGE BOGI LAMA SWKI JOZE BPDL BRTS ONSA ONS1 SPT7 SPT0 VAE6 NOR7 JON6 OSK6 SULD METS MET3 OLK2 ORIV MIK3 TUO2 METG VIR2 FINS SUR4 TOIL"
+        site_list = site_list_str.split()        
     #机构设置
     sp3_name = "gfz"
     clk_name = "gfz"

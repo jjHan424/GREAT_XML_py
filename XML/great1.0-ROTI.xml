@@ -6,7 +6,7 @@
    <sys> GPS GAL BDS </sys>             
    <rec> WHYJ  WHXZ  WHDS  WHSP  N028  N047  N068  XGXN  WUDA  HKTK  T430  HKLT  HKKT  HKSS  HKWS  HKSL  HKST  HKKS  HKCL  HKSC  HKPC  HKNP  HKMW  HKLM  HKOH </rec>
    <sat_rm>  </sat_rm>
-   <int> 5 </int>                          
+   <int> 30 </int>                          
  </gen>
 
  <inputs>                                                                            

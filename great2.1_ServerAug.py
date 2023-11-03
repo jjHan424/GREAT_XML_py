@@ -109,7 +109,7 @@ def change_inp_PPP(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,e
         #change obs
         obs_text = obs_text + "\n"
         for cur_site in site_list:
-            if area == "WuHan" or area == "GuangZhou" or area == "BeiJing" or area == "EPN_GER":
+            if area == "WuHan" or area == "GuangZhou" or area == "BeiJing" or "EPN" in area:
                 obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day)  + cur_site.upper() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
             if area == "HongKong":
                 obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day) + cur_site.lower() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
@@ -234,6 +234,13 @@ def main_iter():
         upddir = "/cache/hanjunjie/Project/B-IUGG/UPD_EPN_GER_RAW_ALL_30S/UPD_WithoutDCB/"
         # site_list = ["TERS","IJMU","DELF","VLIS","DENT","WSRT","KOS1","BRUX","DOUR","WARE","REDU","EIJS","TIT2","EUSK","DILL","DIEP","BADH","KLOP","FFMJ","KARL","HOBU","PTBB","GOET"]
         site_list = ["TERS","IJMU","DENT","WSRT","KOS1","BRUX","DOUR","WARE","REDU","EIJS","TIT2","EUSK","DILL","DIEP","BADH","KLOP","FFMJ","KARL","HOBU","PTBB","GOET"]
+    if area=="EPN_HJX":
+        obsdir = "/cache/hanjunjie/Data/"+year+"/OBS_EPN_HJX/"
+        # upddir = "/cache/hanjunjie/Project/B-IUGG/UPD_Europe_RAW_ALL_30S/UPD_WithoutDCB_WLRES/"
+        upddir = "/cache/hanjunjie/Project/B-IUGG/UPD_Europe_RAW_ALL_30S/UPD_WithoutDCB/"
+        site_list_string = "ARA2 BAUT BBYS BME1 BUTE CFRM CLIB CPAR CTAB DVCN GANP GOP6 GOPE GRAZ HOFJ KATO KRA1 KRAW KUNZ LEIJ LINZ MOP2 MOPI PENC SBG2 SPRN TRF2 TUBO WROC WTZR WTZS WTZZ ZYWI ZZON"
+        # site_list = ["TERS","IJMU","DELF","VLIS","DENT","WSRT","KOS1","BRUX","DOUR","WARE","REDU","EIJS","TIT2","EUSK","DILL","DIEP","BADH","KLOP","FFMJ","KARL","HOBU","PTBB","GOET"]
+        site_list = site_list_string.split(" ")
     #机构设置
     sp3_name = "gfz"
     clk_name = "gfz"

@@ -76,7 +76,7 @@
 	<sig_init_crd> 100 </sig_init_crd>
 	<sig_init_vel> 1 </sig_init_vel>
 	<!-- <sig_init_ztd> 1.0E-9 </sig_init_ztd> -->
-	<sig_init_ztd> 1.0E-9 </sig_init_ztd>
+	<sig_init_ztd> 100 </sig_init_ztd>
 	<sig_init_amb> 10 </sig_init_amb>
 	<sig_init_gal> 10 </sig_init_gal> 
 	<sig_init_glo> 10 </sig_init_glo>

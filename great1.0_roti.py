@@ -108,9 +108,9 @@ def change_inp_PPP(xml_file,obsdir,site,sp3dir,sp3_name,clkdir,clk_name,ephdir,e
         obs_text = obs_text + "\n"
         for cur_site in site_list:
             # if cur_site[0] == "W" or cur_site[0] == "N" or cur_site[0] == "X":
-            obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day)  + cur_site.upper() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
+            # obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day)  + cur_site.upper() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
             # if cur_site[0] == "H" or cur_site[0] == "T":
-            #     obs_text = obs_text + "        " + obsdir  + "{0:03}/".format(day) + cur_site.lower() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
+            obs_text = obs_text + "        " + obsdir  + "{0:03}/30S/".format(day) + cur_site.lower() + "{0:03}".format(day) + "0." + yyyy[2:] + "o\n"
         #change nav
         eph_text = eph_text + "  " + ephdir + eph_name +  "{0:03}".format(day) + "0." + yyyy[2:] + "n"
         
@@ -196,16 +196,16 @@ def main_iter():
     sys_GNSS = argv[5]
     xmlfile = argv[6]
     #路径的设置
-    # obsdir = "/cache/hanjunjie/Data/"+year+"/OBS/"
-    obsdir = "/cache/hanjunjie/Data/"+year+"/OBS_EPN/"
+    obsdir = "/cache/hanjunjie/Data/"+year+"/OBS/"
+    # obsdir = "/cache/hanjunjie/Data/"+year+"/OBS_EPN/"
     sp3dir = "/cache/hanjunjie/Data/"+year+"/SP3/"
     clkdir = "/cache/hanjunjie/Data/"+year+"/CLK/"
     ephdir = "/cache/hanjunjie/Data/"+year+"/NAV/"
     # dcbdir = "/home/hanjunjie/data/IONO/"+year+"/DCB/"
     upddir = "/cache/hanjunjie/Project/A-Paper-1/UPD/UPD_WithoutDCB/"
-    # site_list = ["WHYJ","WHXZ","WHDS","WHSP","N028","N047","N068","XGXN","WUDA","HKTK","T430","HKLT","HKKT","HKSS","HKWS","HKSL","HKST","HKKS","HKCL","HKSC","HKPC","HKNP","HKMW","HKLM","HKOH"]
+    site_list = ["HKTK","T430","HKLT","HKKT","HKSS","HKWS","HKSL","HKST","HKKS","HKCL","HKSC","HKPC","HKNP","HKMW","HKLM","HKOH"]
     # site_list = ["H139","H038","H035","H053","H074","H068","H055","K042","K057","K059","K101","A010","V092","K070"]
-    site_list = ["TERS","IJMU","DELF","VLIS","DENT","WSRT","KOS1","BRUX","DOUR","WARE","REDU","EIJS","TIT2","EUSK","DILL","DIEP","BADH","KLOP","FFMJ","KARL","HOBU","PTBB","GOET"]
+    # site_list = ["TERS","IJMU","DELF","VLIS","DENT","WSRT","KOS1","BRUX","DOUR","WARE","REDU","EIJS","TIT2","EUSK","DILL","DIEP","BADH","KLOP","FFMJ","KARL","HOBU","PTBB","GOET"]
     #机构设置
     sp3_name = "gfz"
     clk_name = "gfz"
