@@ -145,5 +145,5 @@ def change_outputs_aug2grid(xmlfile = "great2.1.xml",area = "XXXX",rm_site_list=
     for cur_site in ck_site_list:
         outputs_aug.text = outputs_aug.text + cur_site + "-"
     outputs_aug.text = outputs_aug.text[:-1]
-    outputs_aug.text = os.path.join(outputs_aug.text,"$(rec)-{}-{:d}".format(cur_sys,sampling))
+    outputs_aug.text = os.path.join(outputs_aug.text,"$(rec)-{}-{:d}.aug".format(cur_sys,sampling))
     tree.write(xmlfile)
