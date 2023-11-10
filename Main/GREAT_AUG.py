@@ -8,7 +8,6 @@ import xml.etree.ElementTree as et
 import logging
 import platform
 from datetime import datetime
-import Linux_Win_HJJ as Run
 cur_platform = platform.system()
 fmt = "%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s"
 if (cur_platform == "Darwin"):
@@ -18,6 +17,7 @@ else:
     sys.path.insert(0,"/cache/hanjunjie/Software/Tools/GREAT_XML_py")
     XML_origin_path = r"/cache/hanjunjie/Software/Tools/GREAT_XML_py/XML/great-Aug2Grid.xml"
 import great2_generate_xml as gen_xml
+import Linux_Win_HJJ as Run
 PURPOSE = "AUG2GRID"
 
 ##----------Python Log----------##
@@ -26,7 +26,7 @@ log_path = os.path.join("./","{}-{:0>4d}{:0>2d}{:0>2d}-{:0>2d}:{:0>2d}:{:0>2d}.p
 logging.basicConfig(level=logging.DEBUG,filename=log_path,filemode="w",format=fmt)
 ##----------SET 1----------##
 work_dir = r"/Users/hanjunjie/Master_3/XML_py_test"
-software = r"/cache/hanjunjie/Software/GREAT/great2.1_grid230627/build_Linux/Bin"
+software = r"/cache/hanjunjie/Software/GREAT/great2.1_grid230629/build_Linux/Bin"
 ##----------SET 2 (ARGV)----------##
 if len(sys.argv) < 12:
     logging.error("Not Enough argv! Please Check")
@@ -62,7 +62,7 @@ if grid_mode.upper() == "CHKCROSS":
 
 # SET AREA
 if area == "EPN_GER":
-    aug_path = "/cache/hanjunjie/Project/B-IUGG/AUG_EPN_UPD_UC/server"
+    aug_path = "/cache/hanjunjie/Project/B-IUGG/AUG_EPN_UPD_UC"
     site_list = ["TERS","IJMU","DENT","WSRT","KOS1","BRUX","DOUR","WARE","REDU","EIJS","TIT2","EUSK","DILL","DIEP","BADH","KLOP","FFMJ","KARL","HOBU","PTBB","GOET"]
     Mask = "EPN_GER"
     RefLon,RefLat = 3.4,53.36

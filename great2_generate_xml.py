@@ -119,7 +119,7 @@ def change_inputs_aug(xmlfile = "great2.1.xml",aug_dir = "default",year = 2021, 
     while (count_day < day_length):
         day = doy + count_day
         for cur_site in site_list:
-            inputs_aug.text = inputs_aug.text + "     " + os.path.join(aug_dir,"{:0>4}{:0>3}".format(year,day),cur_site+"-GEC.aug") + "\n"
+            inputs_aug.text = inputs_aug.text + "     " + os.path.join(aug_dir,"{:0>4}{:0>3}".format(year,day),"server",cur_site+"-GEC.aug") + "\n"
         count_day = count_day + 1
     tree.write(xmlfile)
 
