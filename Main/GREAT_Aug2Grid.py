@@ -2,7 +2,12 @@ import os
 import shutil
 import ftplib
 import sys
-sys.path.insert(0,"/cache/hanjunjie/Software/Tools/GREAT_XML_py")
+import platform
+cur_platform = platform.system()
+if (cur_platform == "Darwin"):
+    sys.path.insert(0,"/Users/hanjunjie/tools/GREAT_XML_py")
+else:
+    sys.path.insert(0,"/cache/hanjunjie/Software/Tools/GREAT_XML_py")
 from xml.dom.minidom import parse
 import xml.dom.minidom
 import xml.etree.ElementTree as et
@@ -149,7 +154,7 @@ while count_int > 0:
             logging.info(" Current Start:: year = {:0>4}, doy = {:0>3}, remove site = {},check site = {}".format(year_int,doy_int,[cur_site],rec_chk))
             cmd = software + "/GREAT_Aug2Grid" + " -x " + cur_xml_name + " > " + "Current.log"
             # subprocess.getoutput(cmd)
-            Run.run_app(software,"GREAT_Aug2Grid",cur_xml_name,log_dir="./",log_name=cur_site+"-py.log")
+            # Run.run_app(software,"GREAT_Aug2Grid",cur_xml_name,log_dir="./",log_name=cur_site+"-py.log")
             os.remove(cur_site+"-py.log")
             logging.info("Current Finish:: year = {:0>4}, doy = {:0>3}, remove site = {},check site = {}".format(year_int,doy_int,[cur_site],rec_chk))
     else:
@@ -160,7 +165,7 @@ while count_int > 0:
         logging.info(" Current Start:: year = {:0>4}, doy = {:0>3}, remove site = {},check site = {}".format(year_int,doy_int,rec_rm,rec_chk))
         cmd = software + "/GREAT_Aug2Grid" + " -x " + cur_xml_name + " > " + "Current.log"
         # subprocess.getoutput(cmd)
-        Run.run_app(software,"GREAT_Aug2Grid",cur_xml_name,log_dir="./",log_name=area+"-py.log")
+        # Run.run_app(software,"GREAT_Aug2Grid",cur_xml_name,log_dir="./",log_name=area+"-py.log")
         os.remove(area+"-py.log")
         logging.info("Current Finish:: year = {:0>4}, doy = {:0>3}, remove site = {},check site = {}".format(year_int,doy_int,rec_rm,rec_chk))
 

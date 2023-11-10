@@ -22,7 +22,7 @@ def run_app(app_dir,app_name,xml_path,log_dir="./",log_name="./py.log"):
 
     cmd_pearl = cmd + tmp
     cmd = cmd + tmp + " > " + cmd_log
-    logging.info("cmd is : " + cmd_pearl)
+    logging.info("cmd in app is : " + cmd_pearl)
     try:
         result = subprocess.getstatusoutput(cmd)
     except OSError:
