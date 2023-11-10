@@ -239,12 +239,17 @@ def main_iter():
     if area=="EPN_ZTD1":
         obsdir = "/cache/hanjunjie/Data/"+year+"/OBS_EPN/"
         upddir = "/cache/hanjunjie/Project/B-IUGG/UPD_Europe_RAW_ALL_30S/UPD_WithoutDCB/"
-        site_list_str = "MSEL MEDI IGMI IGM2 PADO VEN1 MOPS CIMO BOLG GARI VIRG PRAT UNPG POPI ZIM2 ZIMM AUTN BRMF BSCN BRMG PFA3 LIGN COMO MOPI MOP2 KUNZ TRF2 SPRN BUTE PENC DVCN BBYS TUBO"
+        site_list_str = "MEDI IGMI IGM2 GENO PADO VEN1 MOPS CIMO GARI VIRG PRAT ELBA UNPG POPI ONSA ONS1 SPT7 SPT0 VAE6 NOR7 JON6 OSK6 SULD HAS6 "
         site_list = site_list_str.split()
     if area=="EPN_ZTD2":
         obsdir = "/cache/hanjunjie/Data/"+year+"/OBS_EPN/"
         upddir = "/cache/hanjunjie/Project/B-IUGG/UPD_Europe_RAW_ALL_30S/UPD_WithoutDCB/"
         site_list_str = "BOGO BOGE BOGI LAMA SWKI JOZE BPDL BRTS ONSA ONS1 SPT7 SPT0 VAE6 NOR7 JON6 OSK6 SULD METS MET3 OLK2 ORIV MIK3 TUO2 METG VIR2 FINS SUR4 TOIL"
+        site_list = site_list_str.split()        
+    if area=="EPN_ZTD3":
+        obsdir = "/cache/hanjunjie/Data/"+year+"/OBS_EPN/"
+        upddir = "/cache/hanjunjie/Project/B-IUGG/UPD_Europe_RAW_ALL_30S/UPD_WithoutDCB/"
+        site_list_str = "PASA SCOA TLMF TLSG TLSE ESCO LLIV BELL EBRE CREU CASE PUYV BRMF COMO TORI GENO GRAS AXPV MARS AUTN BSCN BRMG PFA3 ZIM2"
         site_list = site_list_str.split()        
     #机构设置
     sp3_name = "gfz"

@@ -278,7 +278,7 @@ def change_ionogrid(xml_file,area,rec_rm_list,rec_chk_list):
     # root.find("rec_chk").text = root.find("rec_chk").text + " "
     tree.write(xml_file)
 
-def change_ionogrid(xml_file,area,ref_lon,ref_lat,space_lon,space_lat,count_lat,count_lon,rec_rm_list,rec_chk_list):
+def change_ionogrid(xml_file,area,ref_lon,ref_lat,space_lon,space_lat,count_lat,count_lon,rec_rm_list,rec_chk_list,mode):
     tree = et.parse(xml_file)
     root = tree.getroot().find("ionogrid")
     root.find("Mask").text = " "  + area +" "
@@ -289,8 +289,12 @@ def change_ionogrid(xml_file,area,ref_lon,ref_lat,space_lon,space_lat,count_lat,
     root.find("CountLon").text = "   "  + "{:2d}".format(count_lat) +"         "
     root.find("CountLat").text = "   "  + "{:2d}".format(count_lon) +"         "
     root.find("bias_baseline").text = "  "  + "{:.2f}".format(1500000000) +"     "
-    root.find("maxdis_wgt").text = "     "  + "{:.2f}".format(100) +"     "
+    root.find("maxdis_wgt").text = "     "  + "{:.2f}".format(300) +"     "
     root.find("rec_rm").text = " "
+    if mode == "CROSS":
+       root.find("wgt_mode").text = "ChkCross"
+    elif mode == "GRID":
+       root.find("wgt_mode").text = "ChkSite"
     for cur_site in rec_rm_list:
         if (cur_site == "NONE"):
             continue

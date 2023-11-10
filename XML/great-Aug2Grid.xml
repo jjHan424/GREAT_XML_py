@@ -102,7 +102,7 @@
 		<wgt_mode> ChkCross </wgt_mode>
 		<rec_chk> WUDA </rec_chk>
 		<roti_wgt> false </roti_wgt>
-		<maxdis_wgt> 100 </maxdis_wgt>
+		<maxdis_wgt> 300 </maxdis_wgt>
 		<!-- <Mask> HONGKONG </Mask>
 		<RefLon> 113.90 </RefLon>
 		<RefLat> 22.50 </RefLat>

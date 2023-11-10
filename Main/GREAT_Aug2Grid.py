@@ -2,7 +2,7 @@ import os
 import shutil
 import ftplib
 import sys
-sys.path.insert(0,"D:\Tools\GREAT_XML_py")
+sys.path.insert(0,"/cache/hanjunjie/Software/Tools/GREAT_XML_py")
 from xml.dom.minidom import parse
 import xml.dom.minidom
 import xml.etree.ElementTree as et
@@ -18,10 +18,11 @@ if "win" in cur_plat_form:
     file_dot = "\\"
 else:
     file_dot = "/"
+
 fmt = "%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s"
 ##----------SET 1----------##
-XML_origin_path = r"E:\1Master_2\3-IUGG\Python_Test\great-Aug2Grid.xml"
-work_dir = r"E:\1Master_2\3-IUGG\Python_Test"
+XML_origin_path = r"/cache/hanjunjie/Software/Tools/GREAT_XML_py/XML/great-Aug2Grid.xml"
+work_dir = r"/cache/hanjunjie/Project/C-ZTD/Aug2Grid"
 software = r"/cache/hanjunjie/Software/GREAT/great2.1_grid230627/build_Linux/Bin"
 ##----------SET 2 (ARGV)----------##
 if len(sys.argv) < 9:
@@ -37,9 +38,11 @@ mode = sys.argv[6]
 cur_sys = sys.argv[7]
 hour = 0
 s_length = 86395
-log_path = work_dir + "/" + area + "_" + sampling + "S" + "_" + year + "_" + doy + "_" + count + ".log"
+# s_length = 7200
+log_path = work_dir + "/" + area + "_" + sampling + "S" + "_" + year + "_" + doy + "_" + count + ".pylog"
 logging.basicConfig(level=logging.DEBUG,filename=log_path,filemode="w",format=fmt)
 ##----------SET 3----------##
+aug_path = "/cache/hanjunjie/Project/C-ZTD/AUG/YYYYDOY/server"
 if area == "EPN_GER":
     aug_path = "/cache/hanjunjie/Project/B-IUGG/AUG_EPN_UPD_UC/YYYYDOY/server"
     site_list = ["TERS","IJMU","DENT","WSRT","KOS1","BRUX","DOUR","WARE","REDU","EIJS","TIT2","EUSK","DILL","DIEP","BADH","KLOP","FFMJ","KARL","HOBU","PTBB","GOET"]
@@ -47,20 +50,48 @@ if area == "EPN_GER":
     RefLon,RefLat = 3.4,53.36
     SpaceLon,SpaceLat = 1.5,1.5
     CountLon,CountLat = 6,4
-elif area == "WuHan":
-    aug_path = "/cache/hanjunjie/Project/B-IUGG/AUG_CHN_UPD_UC_" + sampling + "S/" + "/YYYYDOY/server"
-    site_list = ["WHYJ","WHXZ","WHDS","WHSP","N028","N047","N068","XGXN","WUDA"]
-    Mask = "WuHan"
-    RefLon,RefLat = 113.2,31.8
-    SpaceLon,SpaceLat = 0.5,0.5
-    CountLon,CountLat = 6,5
-elif area == "HongKong":
-    aug_path = "/cache/hanjunjie/Project/B-IUGG/AUG_CHN_UPD_UC_" + sampling + "S/" + "/YYYYDOY/server"
-    site_list = ["HKTK","T430","HKLT","HKKT","HKSS","HKWS","HKSL","HKST","HKKS","HKCL","HKSC","HKPC","HKNP","HKMW","HKLM","HKOH"]
-    Mask = "EPN_GER"
-    RefLon,RefLat = 113.8,22.6
-    SpaceLon,SpaceLat = 0.1,0.1
-    CountLon,CountLat = 6,5
+elif area == "EPN_ZTD1":
+    site_list_str = "MSEL MEDI IGMI IGM2 PADO VEN1 MOPS CIMO BOLG GARI VIRG PRAT UNPG POPI"
+    site_list = site_list_str.split()
+    Mask = "EPN_ZTD1"
+    RefLon,RefLat = 10.43,45.76
+    SpaceLon,SpaceLat = 1.0,1.0
+    CountLon,CountLat = 5,4
+elif area == "EPN_ZTD2":
+    site_list_str = "ZIM2 ZIMM AUTN BRMF BSCN BRMG PFA3 LIGN COMO"
+    site_list = site_list_str.split()
+    Mask = "EPN_ZTD2"
+    RefLon,RefLat = 4.22,48.24
+    SpaceLon,SpaceLat = 1.0,1.0
+    CountLon,CountLat = 7,4
+elif area == "EPN_ZTD3":
+    site_list_str = "MOPI MOP2 KUNZ TRF2 SPRN BUTE PENC DVCN BBYS TUBO"
+    site_list = site_list_str.split()
+    Mask = "EPN_ZTD3"
+    RefLon,RefLat = 15.13,49.54
+    SpaceLon,SpaceLat = 1.0,1.0
+    CountLon,CountLat = 6,4
+elif area == "EPN_ZTD4":
+    site_list_str = "BOGO BOGE BOGI LAMA SWKI JOZE BPDL BRTS"
+    site_list = site_list_str.split()
+    Mask = "EPN_ZTD4"
+    RefLon,RefLat = 20.60,54.43
+    SpaceLon,SpaceLat = 1.0,1.0
+    CountLon,CountLat = 5,4
+elif area == "EPN_ZTD5":
+    site_list_str = "ONSA ONS1 SPT7 SPT0 VAE6 NOR7 JON6 OSK6 SULD"
+    site_list = site_list_str.split()
+    Mask = "EPN_ZTD5"
+    RefLon,RefLat = 9.67,59.19
+    SpaceLon,SpaceLat = 1.5,1.5
+    CountLon,CountLat = 6,3
+elif area == "EPN_ZTD6":
+    site_list_str = "METS MET3 OLK2 ORIV MIK3 TUO2 METG VIR2 FINS SUR4 TOIL"
+    site_list = site_list_str.split()
+    Mask = "EPN_ZTD6"
+    RefLon,RefLat = 19.88,62.11
+    SpaceLon,SpaceLat = 1.5,1.5
+    CountLon,CountLat = 7,3
 else:
     logging.error(area + " is not available")
 
@@ -114,35 +145,43 @@ while count_int > 0:
             Aug2Grid.change_gen(cur_xml_name,year_int,doy_int,hour,s_length,site_list,cur_sys)
             Aug2Grid.change_inp_Aug2Grid(cur_xml_name,cur_aug_path,site_list)
             Aug2Grid.change_out_Aug2Grid(cur_xml_name,area,[cur_site],rec_chk,sampling)
-            Aug2Grid.change_ionogrid(cur_xml_name,area,RefLon,RefLat,SpaceLon,SpaceLat,CountLon,CountLat,[cur_site],rec_chk)
+            Aug2Grid.change_ionogrid(cur_xml_name,area,RefLon,RefLat,SpaceLon,SpaceLat,CountLon,CountLat,[cur_site],rec_chk,mode)
             logging.info(" Current Start:: year = {:0>4}, doy = {:0>3}, remove site = {},check site = {}".format(year_int,doy_int,[cur_site],rec_chk))
             cmd = software + "/GREAT_Aug2Grid" + " -x " + cur_xml_name + " > " + "Current.log"
             # subprocess.getoutput(cmd)
             Run.run_app(software,"GREAT_Aug2Grid",cur_xml_name,log_dir="./",log_name=cur_site+"-py.log")
+            os.remove(cur_site+"-py.log")
             logging.info("Current Finish:: year = {:0>4}, doy = {:0>3}, remove site = {},check site = {}".format(year_int,doy_int,[cur_site],rec_chk))
     else:
         Aug2Grid.change_gen(cur_xml_name,year_int,doy_int,hour,s_length,site_list,cur_sys)
         Aug2Grid.change_inp_Aug2Grid(cur_xml_name,cur_aug_path,site_list)
         Aug2Grid.change_out_Aug2Grid(cur_xml_name,area,rec_rm,rec_chk,sampling)
-        Aug2Grid.change_ionogrid(cur_xml_name,area,RefLon,RefLat,SpaceLon,SpaceLat,CountLon,CountLat,rec_rm,rec_chk)
+        Aug2Grid.change_ionogrid(cur_xml_name,area,RefLon,RefLat,SpaceLon,SpaceLat,CountLon,CountLat,rec_rm,rec_chk,mode)
         logging.info(" Current Start:: year = {:0>4}, doy = {:0>3}, remove site = {},check site = {}".format(year_int,doy_int,rec_rm,rec_chk))
         cmd = software + "/GREAT_Aug2Grid" + " -x " + cur_xml_name + " > " + "Current.log"
         # subprocess.getoutput(cmd)
+        Run.run_app(software,"GREAT_Aug2Grid",cur_xml_name,log_dir="./",log_name=area+"-py.log")
+        os.remove(area+"-py.log")
         logging.info("Current Finish:: year = {:0>4}, doy = {:0>3}, remove site = {},check site = {}".format(year_int,doy_int,rec_rm,rec_chk))
 
     
     ##-----------Delete *.diff-----------##
+    ##-----------Delete *py.log-----------##
     cur_dir_list = os.listdir(cur_dir)
     for cur_path_name in cur_dir_list:
+        # if cur_path_name[len(cur_path_name)-6:len(cur_path_name)] == "py.log":
+        #     os.remove(cur_dir + "/" + cur_path_name)
         if cur_path_name[0:6] != "server":
             continue
         cur_path_dir_list = os.listdir(cur_dir + "/" + cur_path_name)
-        for cur_file_delete in cur_path_dir_list:
-            if cur_file_delete[len(cur_file_delete)-4:len(cur_file_delete)] == "diff":
-                os.remove(cur_dir + "/" + cur_path_name + "/" + cur_file_delete)
-
+        #for cur_file_delete in cur_path_dir_list:
+            #if cur_file_delete[len(cur_file_delete)-4:len(cur_file_delete)] == "diff":
+                #os.remove(cur_dir + "/" + cur_path_name + "/" + cur_file_delete)
+    
+    logging.info("Finsh:: Year-{:0>4},Doy-{:0>3}".format(year_int,doy_int))
     count_int = count_int - 1
     doy_int = doy_int + 1
+logging.info("END ALL")
 
     
 
